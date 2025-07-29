@@ -9,11 +9,11 @@ Un projet Python permettant de scraper les classements des streamers francophone
 ✅ Scraping des 10 premières pages du classement FR :  
 → 500 streamers francophones extraits depuis `https://twitchtracker.com/channels/viewership/french`.
 
-✅ Scraping du Top 500 MONDIAL :  
+✅ Scraping du Top 500 mondial :  
 → 500 streamers les plus populaires au monde depuis `https://twitchtracker.com/channels/viewership`.
 
-✅ Scraping des profils individuels :  
-→ Bio, jeux joués récemment, lives récents, stats mensuelles pour chaque streamer.
+✅ Scraping des profils individuels des streamers :  
+→ Bio, jeux les plus joués, lives récents, stats mensuelles depuis les pages de profil.
 
 ✅ Données extraites pour chaque streamer :
 - Rang (`rank`)
@@ -71,8 +71,8 @@ streamlit run frontend/app.py
 
 🔄 **Extension du scraping** :
 
-* ✅ Scraper les **profils individuels** des streamers (bio, jeux les plus joués, live récents, etc.)
-* ✅ Scraper les **classements internationaux** (global, par pays, par jeu…)
+* Scraper les **profils individuels** des streamers (bio, jeux les plus joués, live récents, etc.)
+* Scraper les **classements internationaux** (global, par pays, par jeu…)
 
 🧠 **Ajout de valeur par l'analyse** :
 
