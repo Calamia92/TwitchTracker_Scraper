@@ -1,0 +1,6 @@
+.venv
+.idea
+.env
+scraper/__pycache__/viewership_fr.cpython-313.pyc
+db/__pycache__/mongo_client.cpython-313.pyc
+db/__pycache__/insert_data.cpython-313.pyc
