@@ -23,16 +23,16 @@ def scrape_viewership_fr():
         for i, row in enumerate(rows, start=1):
             try:
                 cols = row.find_all("td")
-                if len(cols) < 11:
-                    print(f"[⚠️] Ligne ignorée (page {page}, ligne {i}) : colonnes insuffisantes ({len(cols)})")
-                    total_skipped += 1
+                
+                # Ignorer les lignes vides ou de publicité (sans affichage d'erreur)
+                if len(cols) < 6:
                     continue
 
+                # Vérifier si c'est une vraie ligne de données (doit avoir un rank numérique)
                 rank_raw = cols[0].text.strip().replace("#", "")
-                if not rank_raw.isdigit():
-                    print(f"[⚠️] Ligne ignorée (page {page}, ligne {i}) : rank non numérique ({rank_raw})")
-                    total_skipped += 1
+                if not rank_raw or not rank_raw.isdigit():
                     continue
+                
                 rank = int(rank_raw)
 
                 profile_link = cols[1].find("a")["href"]
@@ -41,13 +41,14 @@ def scrape_viewership_fr():
                 name = cols[2].text.strip()
 
                 avg_viewers = cols[3].text.strip()
-                hours_streamed = cols[4].find("span").text.strip()
+                hours_streamed_span = cols[4].find("span")
+                hours_streamed = hours_streamed_span.text.strip() if hours_streamed_span else cols[4].text.strip()
                 max_viewers = cols[5].text.strip()
-                total_minutes_watched = cols[6].text.strip()
+                total_minutes_watched = cols[6].text.strip() if len(cols) > 6 else None
 
-                global_rank = cols[7].text.strip()
-                followers_gain = cols[8].text.strip().lstrip("+")
-                total_followers = cols[9].text.strip()
+                global_rank = cols[7].text.strip() if len(cols) > 7 else None
+                followers_gain = cols[8].text.strip().lstrip("+") if len(cols) > 8 else None
+                total_followers = cols[9].text.strip() if len(cols) > 9 else None
                 total_views = cols[10].text.strip() if "--" not in cols[10].text else None
 
                 all_data.append({
