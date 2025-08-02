@@ -4,3 +4,6 @@
 scraper/__pycache__/viewership_fr.cpython-313.pyc
 db/__pycache__/mongo_client.cpython-313.pyc
 db/__pycache__/insert_data.cpython-313.pyc
+__pycache__/main.cpython-313.pyc
+scraper/__pycache__/individual_profiles.cpython-313.pyc
+scraper/__pycache__/viewership_world.cpython-313.pyc

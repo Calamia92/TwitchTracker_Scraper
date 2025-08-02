@@ -9,6 +9,12 @@ Un projet Python permettant de scraper les classements des streamers francophone
 ✅ Scraping des 10 premières pages du classement FR :  
 → 500 streamers francophones extraits depuis `https://twitchtracker.com/channels/viewership/french`.
 
+✅ Scraping du Top 500 mondial :  
+→ 500 streamers les plus populaires au monde depuis `https://twitchtracker.com/channels/viewership`.
+
+✅ Scraping des profils individuels des streamers :  
+→ Bio, jeux les plus joués, lives récents, stats mensuelles depuis les pages de profil.
+
 ✅ Données extraites pour chaque streamer :
 - Rang (`rank`)
 - Nom (`name`)
@@ -57,7 +63,7 @@ python main.py
 
 # Lancer l'interface Streamlit
 streamlit run frontend/app.py
-````
+```
 
 ---
 
@@ -68,11 +74,11 @@ streamlit run frontend/app.py
 * Scraper les **profils individuels** des streamers (bio, jeux les plus joués, live récents, etc.)
 * Scraper les **classements internationaux** (global, par pays, par jeu…)
 
-🧠 **Ajout de valeur par l’analyse** :
+🧠 **Ajout de valeur par l'analyse** :
 
 * 📊 Visualisation interactive enrichie (e.g. % de croissance)
 * 📈 Suivi temporel (comparaison entre plusieurs scrapes)
-* 🤖 **Utilisation d’IA** pour :
+* 🤖 **Utilisation d'IA** pour :
 
   * Estimer les tendances de croissance
   * Recommander des streamers similaires
@@ -88,8 +94,8 @@ streamlit run frontend/app.py
 
 > Utiliser des modèles de machine learning simples (regression, clustering ou séries temporelles) pour :
 
-* Prédire le classement d’un streamer dans les semaines à venir
-* Détecter les “étoiles montantes”
+* Prédire le classement d'un streamer dans les semaines à venir
+* Détecter les "étoiles montantes"
 * Identifier les heures les plus performantes de stream
 
 ---
@@ -97,4 +103,3 @@ streamlit run frontend/app.py
 ## 🧑‍💻 Auteur
 
 Projet développé par Boubaker, Aya et Hicham dans le cadre d'un projet scolaire Python & Scraping.
-
