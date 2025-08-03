@@ -4,7 +4,6 @@ import pandas as pd
 from dotenv import load_dotenv
 import os
 import plotly.express as px
-import plotly.graph_objects as go
 
 # Chargement des variables d'environnement
 load_dotenv()
@@ -14,17 +13,17 @@ MONGO_URI = os.getenv("MONGODB_URI")
 client = MongoClient(MONGO_URI)
 db = client["twitchtracker"]
 collection = db["viewership_fr"]
-profiles_collection = db["streamers_profiles_fr"]
+profiles_collection = db["profiles"]
 
-# Config Streamlit avec thème personnalisé
+# Configuration Streamlit
 st.set_page_config(
-    page_title="🎮 Twitch FR Analytics", 
+    page_title="🎮 Twitch FR Analytics",
     page_icon="🎮",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# CSS personnalisé pour un design moderne
+# CSS personnalisé
 st.markdown("""
 <style>
     .main-header {
@@ -36,7 +35,6 @@ st.markdown("""
         color: white;
         box-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
     }
-    
     .streamer-card {
         background: #E5E7EB;
         padding: 1.5rem;
@@ -44,47 +42,12 @@ st.markdown("""
         margin-bottom: 1rem;
         border-left: 4px solid #6B7280;
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        transition: transform 0.2s ease;
     }
-    
-    .streamer-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
-    .metric-container {
-        background: white;
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-        border: 1px solid #D1D5DB;
-    }
-    
-    .sidebar-header {
-        background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
-        color: white;
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-    
     .top-streamer {
         background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
-        border-left-color: #8B5CF6;
-        border: 2px solid #8B5CF6;
         color: white;
-        font-weight: bold;
+        border: 2px solid #8B5CF6;
     }
-    
-    .top-streamer h3 {
-        color: white !important;
-    }
-    
-    .top-streamer a {
-        color: #E0E7FF !important;
-    }
-    
     .profile-card {
         background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
         color: white;
@@ -92,50 +55,44 @@ st.markdown("""
         border-radius: 10px;
         margin-bottom: 1rem;
     }
-    
-    .metric-value {
-        color: #374151;
-        font-weight: bold;
-    }
-    
-    .metric-label {
-        color: #6B7280;
-        font-size: 0.9rem;
-    }
 </style>
 """, unsafe_allow_html=True)
 
-# Header principal avec design moderne
+# Header
 st.markdown("""
 <div class="main-header">
     <h1>🎮 TWITCH FRANCE ANALYTICS</h1>
-    <p style="font-size: 1.2rem; margin: 0;">📊 Classement des Streamers Francophones</p>
+    <p style="font-size: 1.2rem;">📊 Classement des Streamers Francophones</p>
 </div>
 """, unsafe_allow_html=True)
 
-# Navigation par onglets
+# Onglets
 tab1, tab2 = st.tabs(["📊 Classement & Stats", "👤 Profils Détaillés"])
 
+
+# ---------- TAB 1 ----------
 with tab1:
-    # Chargement des données principales
+
+    def safe_eval(x):
+        try:
+            return float(eval(x))
+        except:
+            return None
+
     @st.cache_data
     def load_data():
         data = list(collection.find({}, {"_id": 0}))
         df = pd.DataFrame(data)
-        
-        # Nettoyage
-        def clean_number(col):
-            return (
+
+        for col in ["avg_viewers", "total_followers", "hours_streamed", "followers_gain"]:
+            df[col] = (
                 df[col]
                 .astype(str)
                 .str.replace(",", "")
                 .str.replace("K", "*1e3")
                 .str.replace("M", "*1e6")
-                .apply(lambda x: eval(x) if x.replace('.', '', 1).replace('-', '', 1).isdigit() or 'e' in x else None)
+                .apply(safe_eval)
             )
-
-        for col in ["avg_viewers", "total_followers", "hours_streamed", "followers_gain"]:
-            df[col] = clean_number(col)
 
         df["rank"] = df["rank"].astype(int)
         df = df.sort_values(by="rank")
@@ -143,215 +100,133 @@ with tab1:
 
     df = load_data()
 
-    # Sidebar avec design amélioré
     with st.sidebar:
-        st.markdown('<div class="sidebar-header"><h2>🎯 Navigation</h2></div>', unsafe_allow_html=True)
-        
-        # Métriques globales
-        st.markdown("### 📈 Statistiques Globales")
-        
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Total Streamers", len(df))
-            st.metric("Top Viewers", f"{int(df['avg_viewers'].max()):,}")
-        
-        with col2:
-            st.metric("Total Followers", f"{int(df['total_followers'].sum()/1000000):.1f}M")
-            st.metric("Heures Streamées", f"{int(df['hours_streamed'].sum()):,}h")
-        
+        st.subheader("🎯 Navigation")
+        st.metric("Total Streamers", len(df))
+        st.metric("Top Viewers", f"{int(df['avg_viewers'].max()):,}")
+        st.metric("Total Followers", f"{int(df['total_followers'].sum()/1e6):.1f}M")
+        st.metric("Heures Streamées", f"{int(df['hours_streamed'].sum()):,}h")
         st.markdown("---")
-        
+
         # Pagination
-        st.markdown("### 📄 Pagination")
         per_page = st.selectbox("Résultats par page", [10, 25, 50, 100], index=2)
         total_pages = (len(df) - 1) // per_page + 1
         page = st.number_input("Page", min_value=1, max_value=total_pages, value=1, step=1)
-        
         st.markdown("---")
-        
+
         # Filtres
-        st.markdown("### 🔍 Filtres")
+        st.subheader("🔍 Filtres")
         min_viewers = st.slider("Viewers minimum", 0, int(df['avg_viewers'].max()), 0)
         min_followers = st.slider("Followers minimum (K)", 0, int(df['total_followers'].max()/1000), 0)
 
-    # Application des filtres
+    # Filtres & pagination
     filtered_df = df[
-        (df['avg_viewers'] >= min_viewers) & 
-        (df['total_followers'] >= min_followers * 1000)
+        (df["avg_viewers"] >= min_viewers) &
+        (df["total_followers"] >= min_followers * 1000)
     ]
 
-    # Pagination
-    start_idx = (page - 1) * per_page
-    end_idx = start_idx + per_page
-    paginated_df = filtered_df.iloc[start_idx:end_idx]
+    start = (page - 1) * per_page
+    end = start + per_page
+    paginated_df = filtered_df.iloc[start:end]
 
-    # Graphiques analytiques
+    # Graphiques
     col1, col2 = st.columns(2)
+    top10 = df.head(10)
 
     with col1:
-        st.markdown("### 📊 Top 10 - Viewers Moyens")
-        top_10 = df.head(10)
         fig = px.bar(
-            top_10, 
-            x='avg_viewers', 
-            y='name',
-            orientation='h',
-            color='avg_viewers',
-            color_continuous_scale='Viridis'
+            top10,
+            x="avg_viewers", y="name",
+            orientation="h", color="avg_viewers",
+            color_continuous_scale="Viridis"
         )
-        fig.update_layout(height=400, showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
     with col2:
-        st.markdown("### 👥 Top 10 - Followers")
         fig2 = px.bar(
-            top_10, 
-            x='total_followers', 
-            y='name',
-            orientation='h',
-            color='total_followers',
-            color_continuous_scale='Plasma'
+            top10,
+            x="total_followers", y="name",
+            orientation="h", color="total_followers",
+            color_continuous_scale="Plasma"
         )
-        fig2.update_layout(height=400, showlegend=False)
         st.plotly_chart(fig2, use_container_width=True)
 
-    # Affichage des résultats avec design amélioré
-    st.markdown(f"### 🎯 Page {page}/{total_pages} — Résultats {start_idx+1} à {min(end_idx, len(filtered_df))} sur {len(filtered_df)} streamers")
+    # Affichage des cartes
+    st.markdown(f"### 🎯 Page {page}/{total_pages} — {len(filtered_df)} streamers filtrés")
 
-    for idx, (_, row) in enumerate(paginated_df.iterrows()):
-        # Style spécial pour le top 3
-        card_class = "streamer-card top-streamer" if row['rank'] <= 3 else "streamer-card"
-        rank_emoji = "🥇" if row['rank'] == 1 else "🥈" if row['rank'] == 2 else "🥉" if row['rank'] == 3 else "🎮"
-        
+    for _, row in paginated_df.iterrows():
+        card_class = "streamer-card top-streamer" if row["rank"] <= 3 else "streamer-card"
+        rank_emoji = {1: "🥇", 2: "🥈", 3: "🥉"}.get(row["rank"], "🎮")
+
         st.markdown(f"""
         <div class="{card_class}">
-            <div style="display: flex; align-items: center; gap: 1rem;">
-                <img src="{row['avatar_url']}" width="80" height="80" style="border-radius: 50%; border: 2px solid #5E81AC;">
-                <div style="flex: 1;">
-                    <h3 style="margin: 0; color: #2E3440;">
-                        {rank_emoji} #{row['rank']} 
-                        <a href="{row['profile_url']}" target="_blank" style="text-decoration: none; color: #5E81AC;">
-                            {row['name']}
-                        </a>
-                    </h3>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem;">
-                        <div class="metric-container">
-                            <div class="metric-value" style="font-size: 1.5rem;">
-                                👁️ {int(row['avg_viewers']):,}
-                            </div>
-                            <div class="metric-label">Viewers moyens</div>
-                        </div>
-                        <div class="metric-container">
-                            <div class="metric-value" style="font-size: 1.5rem;">
-                                👥 {int(row['total_followers']):,}
-                            </div>
-                            <div class="metric-label">Followers</div>
-                        </div>
-                        <div class="metric-container">
-                            <div class="metric-value" style="font-size: 1.5rem;">
-                                🕒 {int(row['hours_streamed']):,}h
-                            </div>
-                            <div class="metric-label">Heures streamées</div>
-                        </div>
-                        <div class="metric-container">
-                            <div class="metric-value" style="font-size: 1.5rem;">
-                                📈 {int(row['followers_gain']):,}
-                            </div>
-                            <div class="metric-label">Gain followers</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h3>{rank_emoji} #{row['rank']} <a href="{row['profile_url']}" target="_blank">{row['name']}</a></h3>
+            <ul>
+                <li>👁️ Viewers moyens : {int(row['avg_viewers']):,}</li>
+                <li>👥 Followers : {int(row['total_followers']):,}</li>
+                <li>🕒 Heures streamées : {int(row['hours_streamed']):,}</li>
+                <li>📈 Gain followers : {int(row['followers_gain']):,}</li>
+            </ul>
         </div>
         """, unsafe_allow_html=True)
 
+
+# ---------- TAB 2 ----------
 with tab2:
-    st.markdown("### 👤 Profils Détaillés des Streamers")
-    
-    # Chargement des profils détaillés
+    st.markdown("### 👤 Profils Détaillés")
+
     @st.cache_data
     def load_profiles():
-        profiles_data = list(profiles_collection.find({}, {"_id": 0}))
-        return pd.DataFrame(profiles_data)
-    
+        data = list(profiles_collection.find({}, {"_id": 0}))
+        return pd.DataFrame(data)
+
     profiles_df = load_profiles()
-    
-    if len(profiles_df) > 0:
-        st.markdown(f"**📊 {len(profiles_df)} profils détaillés disponibles**")
-        
-        # Sélecteur de streamer
-        streamer_names = sorted(profiles_df['name'].tolist())
-        selected_streamer = st.selectbox("🎯 Choisir un streamer", streamer_names)
-        
-        if selected_streamer:
-            profile = profiles_df[profiles_df['name'] == selected_streamer].iloc[0]
-            
-            # Affichage du profil détaillé
-            col1, col2 = st.columns([2, 1])
-            
-            with col1:
-                st.markdown(f"""
+
+    if not profiles_df.empty:
+        st.success(f"{len(profiles_df)} profils détaillés disponibles")
+        selected = st.selectbox("🎯 Choisir un streamer", sorted(profiles_df['name'].tolist()))
+
+        if selected:
+            profile = profiles_df[profiles_df['name'] == selected].iloc[0]
+            st.markdown(f"""
                 <div class="profile-card">
-                    <h2>🎮 {profile['name']}</h2>
-                    <p><strong>🔗 Profil:</strong> <a href="{profile['profile_url']}" target="_blank" style="color: #FFD700;">Voir sur TwitchTracker</a></p>
+                    <h2>🎮 {profile.get('name')}</h2>
+                    <p><strong>🔗 Profil:</strong> <a href="{profile.get('profile_url')}" target="_blank">Voir sur TwitchTracker</a></p>
                     <p><strong>🏆 Rang:</strong> #{profile.get('rank', 'N/A')}</p>
-                    <p><strong>📅 Dernière mise à jour:</strong> {profile['scraped_at'][:10]}</p>
+                    <p><strong>📅 Scrapé le:</strong> {profile.get('scraped_at', '')[:10]}</p>
                 </div>
-                """, unsafe_allow_html=True)
-                
-                # Bio
-                bio = profile.get('bio')
-                if bio:
-                    st.markdown("### 📝 Biographie")
-                    st.markdown(f"*{bio}*")
-                else:
-                    st.markdown("### 📝 Biographie")
-                    st.markdown("*Aucune biographie disponible*")
-            
-            with col2:
-                # Statistiques additionnelles
-                additional_stats = profile.get('additional_stats', {})
-                if additional_stats:
-                    st.markdown("### 📊 Statistiques")
-                    for key, value in additional_stats.items():
-                        st.metric(key.replace('_', ' ').title(), value)
-                
-                # Infos du channel
-                channel_info = profile.get('channel_info', {})
-                if channel_info:
-                    st.markdown("### 📺 Infos Channel")
-                    for key, value in channel_info.items():
-                        st.write(f"**{key.replace('_', ' ').title()}:** {value}")
-            
-            # Top jeux et streams récents
-            col3, col4 = st.columns(2)
-            
-            with col3:
-                st.markdown("### 🎮 Top Jeux")
-                top_games = profile.get('top_games', [])
-                if top_games:
-                    for i, game in enumerate(top_games[:5], 1):
-                        st.markdown(f"**{i}.** {game.get('game', 'N/A')} - {game.get('hours', 'N/A')}")
-                else:
-                    st.markdown("*Aucun jeu trouvé*")
-            
-            with col4:
-                st.markdown("### 📺 Streams Récents")
-                recent_streams = profile.get('recent_streams', [])
-                if recent_streams:
-                    for stream in recent_streams[:5]:
-                        st.markdown(f"**{stream.get('date', 'N/A')}** - {stream.get('game', 'N/A')} ({stream.get('duration', 'N/A')})")
-                else:
-                    st.markdown("*Aucun stream récent trouvé*")
-    
+            """, unsafe_allow_html=True)
+
+            # Bio
+            st.subheader("📝 Biographie")
+            st.markdown(f"*{profile.get('bio', 'Aucune biographie disponible')}*")
+
+            # Stats
+            st.subheader("📊 Statistiques")
+            for key, val in profile.get("additional_stats", {}).items():
+                st.metric(key.replace("_", " ").title(), val)
+
+            # Infos channel
+            st.subheader("📺 Infos du Channel")
+            for key, val in profile.get("channel_info", {}).items():
+                st.write(f"**{key.replace('_', ' ').title()}:** {val}")
+
+            # Top jeux
+            st.subheader("🎮 Top Jeux")
+            for i, game in enumerate(profile.get("top_games", []), 1):
+                st.markdown(f"**{i}.** {game.get('game')} – {game.get('hours')}")
+
+            # Streams récents
+            st.subheader("📺 Streams Récents")
+            for stream in profile.get("recent_streams", []):
+                st.markdown(f"- {stream.get('date')} – {stream.get('game')} ({stream.get('duration')})")
     else:
-        st.warning("⚠️ Aucun profil détaillé trouvé. Lancez d'abord le scraping des profils avec `python main_profiles.py`")
+        st.warning("⚠️ Aucun profil trouvé. Lancez `main_profiles.py` pour les scraper.")
 
 # Footer
 st.markdown("---")
 st.markdown("""
-<div style="text-align: center; color: #666; padding: 2rem;">
-    <p>📊 Données mises à jour en temps réel depuis TwitchTracker</p>
-    <p>🚀 Développé avec Streamlit & Python</p>
+<div style="text-align: center; color: #888; padding: 2rem;">
+    <p>📊 Données récupérées depuis TwitchTracker · 🧠 Projet Streamlit</p>
 </div>
 """, unsafe_allow_html=True)
