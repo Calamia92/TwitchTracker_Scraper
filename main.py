@@ -104,7 +104,7 @@ def main():
                 scrape_everything()
                 break
             else:
-                print("❌ Choix invalide. Tapez un nombre entre 1 et 5.")
+                print("❌ Choix invalide. Tapez un nombre entre 1 et 6.")
 
         except KeyboardInterrupt:
             print("\n\n👋 Scraping annulé.")
