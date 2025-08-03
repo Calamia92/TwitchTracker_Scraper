@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   ZeratoR - Streamer Overview &amp; Stats · TwitchTracker
+  </title>
+  <meta content="Overview of zerator activities, statistics, played games and past streams." name="description"/>
+  <meta content="twitch, statistics, stream, channel, stats, games, subs, subscribers, clips, viewers, followers, views, shroud, ninja, drdisrespect, summit1g, lirik, dreadztv" name="keywords"/>
+  <!-- AdSense -->
+  <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3581129455196386">
+  </script>
+  <!-- GA -->
+  <script>
+   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-51794509-3', 'auto'); ga('send', 'pageview');
+  </script>
+  <script async="" src="https://www.google-analytics.com/analytics.js">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.datatables.net/v/bs/dt-1.13.7/datatables.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/lity@2/dist/lity.min.css" rel="stylesheet"/>
+  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet"/>
+  <link href="/css/master.css?7" rel="stylesheet"/>
+  <script>
+   e='#ffffff'
+  </script>
+  <style type="text/css">
+   .ads {
+            display: none;
+            text-align: center;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        .live-stream {
+            font-size:25px;
+            padding-left: 6px;
+            padding-right: 10px;
+            border-radius: 15px;
+            margin-top: 4px;
+        }
+        .live-stat {
+            font-size: 30px;
+            letter-spacing: 1.5px;
+            line-height: 0.7;
+        }
+        #no-performance {
+            display: none;
+            margin-top: 25px;
+            text-align: center;
+            color: #b4bcc2;
+        }
+        #performance-chart-wrapper {
+            position: relative;
+        }
+        #performance-chart {
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            bottom: -30px;
+        }
+        .legend {
+            display: inline;
+            color: inherit;
+            font-size: 12px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        @media (max-width: 576px) {
+            .clips-grid {
+                grid-template-columns: repeat(2,minmax(0,1fr));
+            }
+        }
+        /* Twitch Play Button */
+        .twitchPlay {
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 150px;
+            margin-left: -75px;
+            margin-top: -75px;
+            cursor: pointer;
+            fill: rgb(24 188 156 / 70%);
+            background: rgb(0 0 0 / 50%);
+            border-radius: 50%;
+        }
+        .twitchPlay:hover {
+            fill: rgb(24 188 156);
+        }
+  </style>
+  <script>
+   window.channel = {
+			id: 41719107,
+			name: 'zerator',
+			created_at: '2013-03-25'
+		}
+  </script>
+  <meta content="#ffffff" name="theme-color"/>
+  <link href="/img/ico/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+  <link href="/img/ico/apple-icon.png" rel="apple-touch-icon"/>
+  <link href="/img/ico/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76"/>
+  <link href="/img/ico/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
+  <link href="/img/ico/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
+  <link href="/img/ico/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
+  <!-- Twitter Meta -->
+  <meta content="summary" name="twitter:card"/>
+  <meta content="@twitchtracker_" name="twitter:site"/>
+  <!-- Open Graph -->
+  <meta content="en_US" property="og:locale"/>
+  <meta content="website" property="og:type"/>
+  <meta content="TwitchTracker" property="og:site_name"/>
+  <meta content="https://twitchtracker.com/zerator" property="og:url"/>
+  <meta content="ZeratoR - Streamer Overview &amp; Stats" property="og:title"/>
+  <meta content="Overview of zerator activities, statistics, played games and past streams." property="og:description"/>
+  <meta content="https://static-cdn.jtvnw.net/jtv_user_pictures/599b546a-c27f-4684-93ff-5eeecd01fb2b-profile_image-300x300.png" property="og:image"/>
+ </head>
+ <body>
+  <div class="navbar navbar-default" id="main-nav">
+   <div class="container">
+    <div class="navbar-header" style="float:left">
+     <a class="navbar-brand" href="/">
+      TwitchTracker
+     </a>
+    </div>
+    <div class="navbar-header" style="float:right">
+     <div class="navbar-static" id="timezone-switch" title="Switch time zone between local and UTC">
+      <div>
+       Time zone
+      </div>
+      <span>
+      </span>
+     </div>
+     <a class="navbar-static" href="/u/login" id="sign-in-button">
+      <i class="fas fa-sign-in-alt fa-fw">
+      </i>
+      <span>
+       LOG IN
+      </span>
+     </a>
+     <a class="navbar-static" href="/u/dashboard" id="menu-user-icon">
+      <img/>
+     </a>
+     <a class="navbar-static" href="#" id="invoke-main-search-form">
+      <i class="fas fa-search fa-fw">
+      </i>
+      <span>
+       SEARCH
+      </span>
+     </a>
+     <button class="navbar-toggle navbar-static" data-target="#navbar-main" data-toggle="collapse" type="button">
+      <span class="icon-bar">
+      </span>
+      <span class="icon-bar">
+      </span>
+      <span class="icon-bar">
+      </span>
+     </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+     <ul class="nav navbar-nav">
+      <li>
+       <a href="/channels/ranking">
+        Channels
+       </a>
+      </li>
+      <li>
+       <a href="/games">
+        Games
+       </a>
+      </li>
+      <li>
+       <a href="/clips">
+        Clips
+       </a>
+      </li>
+      <li class="dropdown">
+       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        Stats
+        <span class="caret">
+        </span>
+       </a>
+       <ul class="dropdown-menu">
+        <li>
+         <a href="/statistics">
+          Overview
+         </a>
+        </li>
+        <li>
+         <a href="/statistics/viewers">
+          Viewers
+         </a>
+        </li>
+        <li>
+         <a href="/statistics/channels">
+          Channels
+         </a>
+        </li>
+        <li>
+         <a href="/statistics/active-streamers">
+          Active Streamers
+         </a>
+        </li>
+        <li>
+         <a href="/statistics/watch-time">
+          Watch Time
+         </a>
+        </li>
+        <li>
+         <a href="/statistics/stream-time">
+          Stream Time
+         </a>
+        </li>
+        <li>
+         <a href="/statistics/games">
+          Games
+         </a>
+        </li>
+        <li>
+         <a href="/languages">
+          Languages
+         </a>
+        </li>
+        <li>
+         <a href="/compare/channels">
+          Compare
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="/subscribers">
+        Subscribers
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <form action="/search" class="search-form" id="main-search-form">
+    <div class="container">
+     <input autocomplete="off" maxlength="100" minlength="3" name="q" placeholder="channel or game" required="" type="search"/>
+     <button class="fas fa-search" type="submit">
+     </button>
+    </div>
+   </form>
+  </div>
+  <div id="content-wrapper">
+   <style>
+    .leaderboard-atf { display:inline-block; min-width: 320px; max-width:1100px; width:100%; height: 120px; }
+   </style>
+   <div style="background:#05101e;text-align:center;">
+    <!-- Leaderboard ATF -->
+    <ins class="adsbygoogle leaderboard-atf" data-ad-client="ca-pub-3581129455196386" data-ad-slot="8060421250" data-full-width-responsive="true">
+    </ins>
+    <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+   </div>
+   <div class="header">
+    <div class="header-background" style="background-image:url(/img/bg.jpg)">
+    </div>
+    <div class="container">
+     <div class="header-scope">
+      <div style="position:absolute;color:rgba(0,0,0,0);right:0;">
+       zerator:41719107
+      </div>
+      <div id="app">
+       <div id="app-logo">
+        <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/599b546a-c27f-4684-93ff-5eeecd01fb2b-profile_image-300x300.png"/>
+        <div class="live-indicator-container">
+         <span class="live-indicator label label-danger">
+          LIVE
+         </span>
+        </div>
+       </div>
+       <div id="app-conception">
+        <div id="app-title">
+         ZeratoR
+        </div>
+        <ul class="nav nav-pills" id="app-nav">
+         <li>
+          <a href="/zerator">
+           Overview
+          </a>
+         </li>
+         <li>
+          <a href="/zerator/streams">
+           Streams
+          </a>
+         </li>
+         <li>
+          <a href="/zerator/games">
+           Games
+          </a>
+         </li>
+         <li>
+          <a href="/zerator/subscribers">
+           Subs
+          </a>
+         </li>
+         <li>
+          <a href="/zerator/statistics">
+           Statistics
+          </a>
+         </li>
+         <li>
+          <a href="/zerator/clips">
+           Clips
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div class="rank-badge r1">
+        <span>
+         RANK
+        </span>
+        <i class="fas fa-crown">
+        </i>
+        <span class="to-number">
+         124
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="g-x-wrapper">
+    <div class="container">
+     <div class="g-x-header">
+      <div class="g-x-title">
+       Performance Summary
+      </div>
+      <div class="g-x-selector" id="select-performance">
+       <span data-key="week">
+        7 days
+       </span>
+       <span data-key="month">
+        30 days
+       </span>
+       <span data-key="3 months">
+        3 months
+       </span>
+       <a href="/zerator/statistics">
+        all time
+       </a>
+      </div>
+     </div>
+     <script id="g-x-s-block-template" type="text/template">
+      <div class="g-x-s-block">
+                <div class="g-x-s-value"
+                    <% if (d.prev[m[0]] && d.curr[m[0]] != d.prev[m[0]]) { %>
+                        title="Change from previous period
+                            <br>
+                            <%= (d.curr[m[0]] >= d.prev[m[0]] ? '+' : '-')+ m[1](Math.abs(d.curr[m[0]] - d.prev[m[0]])) %>
+                            <% if (d.curr[m[0]] && d.prev[m[0]]) { %>
+                                (<%= (d.curr[m[0]] >= d.prev[m[0]] ? '+' : '-')+toNumberLarge(Math.round(Math.abs((d.curr[m[0]] / d.prev[m[0]] - 1) * 100))) %>%)
+                            <% } %>
+                        "
+                    <% } %>
+                >
+                    <span><%= m[1](d.curr[m[0]]) %></span>
+                    <% if (d.curr[m[0]] > d.prev[m[0]]) { %>
+                        <span class="up"></span>
+                    <% } else if (d.curr[m[0]] < d.prev[m[0]]) { %>
+                        <span class="down"></span>
+                    <% } %>
+                </div>
+                <div class="g-x-s-label color-<%= m[2] %>"><%= m[3] %></div>
+            </div>
+     </script>
+     <div class="g-x-l g-x-l-4" id="performance-panel">
+     </div>
+     <div id="performance-chart-wrapper">
+      <div id="performance-chart">
+      </div>
+     </div>
+     <div id="no-performance">
+      No streams for the period
+     </div>
+    </div>
+   </div>
+   <div class="g-x-wrapper">
+    <div class="container">
+     <div class="g-x-header">
+      <div class="g-x-title">
+       Lifetime Overview
+      </div>
+     </div>
+     <div class="g-x-l g-x-l-4">
+      <div class="g-x-s-block">
+       <div class="g-x-s-value">
+        <div class="to-number">
+         11208.9
+        </div>
+       </div>
+       <div class="g-x-s-label color-live">
+        Total hours streamed
+       </div>
+      </div>
+      <div class="g-x-s-block">
+       <div class="g-x-s-value">
+        <span class="g-x-s-value-addon">
+         #14
+        </span>
+        <span class="to-number">
+         707071
+        </span>
+       </div>
+       <div class="g-x-s-label color-viewersMax">
+        Highest number of viewers
+       </div>
+       <div class="g-x-s-label">
+        <a class="to-date text-muted" href="/zerator/streams/43675704284">
+         2021-10-31 13:19:38
+        </a>
+       </div>
+      </div>
+      <div class="g-x-s-block">
+       <div class="g-x-s-value">
+        <span class="g-x-s-value-addon">
+         #288
+        </span>
+        <span class="to-number">
+         1607048
+        </span>
+       </div>
+       <div class="g-x-s-label color-followers">
+        Total followers
+       </div>
+      </div>
+      <div class="g-x-s-block">
+       <div class="g-x-s-value">
+        <div class="to-number">
+         580
+        </div>
+       </div>
+       <div class="g-x-s-label color-views">
+        Total games streamed
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="g-x-wrapper">
+    <div class="container">
+     <div class="g-x-header">
+      <div class="g-x-title">
+       Subscribers
+      </div>
+      <div class="g-x-selector">
+       <a href="/zerator/subscribers">
+        Details
+       </a>
+      </div>
+     </div>
+     <div class="g-x-l g-x-l-4">
+      <div class="g-x-s-block">
+       <div class="g-x-s-value to-number">
+        11233
+       </div>
+       <div class="g-x-s-label color-gold">
+        Current active subs
+       </div>
+      </div>
+      <div class="g-x-s-block">
+       <div class="g-x-s-value to-number">
+        6008
+       </div>
+       <div class="g-x-s-label">
+        Paid active subs
+       </div>
+      </div>
+      <div class="g-x-s-block">
+       <div class="g-x-s-value to-number">
+        1293
+       </div>
+       <div class="g-x-s-label">
+        Gifted active subs
+       </div>
+      </div>
+      <div class="g-x-s-block">
+       <div class="g-x-s-value to-number">
+        56118
+       </div>
+       <div class="g-x-s-label">
+        All-time high active subs
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="container">
+    <section style="padding: 15px;background-color: #ecf0f2;">
+     <div class="row">
+      <div class="col-lg-6 col-md-8">
+       <div class="embed-responsive embed-responsive-16by9">
+        <div class="twitchPlay">
+         <svg height="100%" viewbox="0 0 30 30" width="100%">
+          <path d="M10,7l12,8l-12,8V7z">
+          </path>
+         </svg>
+        </div>
+        <img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_zerator-640x360.jpg" style="width:100%"/>
+       </div>
+      </div>
+      <div class="col-lg-2 visible-lg">
+       <img src="https://static-cdn.jtvnw.net/ttv-boxart/721156300_IGDB-260x360.jpg" style="max-height: 300px;"/>
+      </div>
+      <div class="col-md-4 text-center">
+       <div class="col-xs-12">
+        <p>
+         <a class="badge live-stream" href="/zerator/streams/323884601721">
+          <i class="fa-circle fas text-danger">
+          </i>
+          LIVE STREAM
+         </a>
+        </p>
+       </div>
+       <div class="col-md-12 col-xs-6">
+        <p>
+         <span class="live-stat to-number">
+          5904
+         </span>
+         <br/>
+         viewers watching
+        </p>
+        <p>
+         <span class="live-stat">
+          2.11%
+         </span>
+         <br/>
+         <span>
+          of all
+          <a class="badge" href="/languages/French">
+           French
+          </a>
+          viewers
+         </span>
+        </p>
+       </div>
+       <div class="col-md-12 col-xs-6">
+        <p>
+         <span class="live-stat">
+          62.74%
+         </span>
+         <br/>
+         of the game viewers
+         <br/>
+         <a class="badge" href="/zerator/games/721156300" style="white-space:normal">
+          SUPERVIVE
+         </a>
+        </p>
+        <p>
+         <span class="live-stat to-time-lg">
+          291
+         </span>
+         <br/>
+         stream duration
+        </p>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section>
+     <h4 class="headline">
+      Recent Streams
+      <ul class="legend list-inline text-uppercase">
+       <li>
+        <i class="fas fa-fw fa-circle" style="color:#18BC9C">
+        </i>
+        Max Viewers
+       </li>
+       <li>
+        <i class="fas fa-fw fa-circle" style="color:#3498db">
+        </i>
+        Followers
+       </li>
+       <li>
+        <i class="fas fa-fw fa-circle" style="color:#2c3e50">
+        </i>
+        Time Streamed
+       </li>
+      </ul>
+     </h4>
+     <div id="channel-streams">
+      <div>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/323884601721" title="Aujourd'hui, du jeu. (Viewing party samedi LeHangar.gg pour les places) 📣 ZEVENT ANNONCÉ 📣 zevent.fr pour toutes les informations">
+        <div data-dt="2025-07-29 16:20:13">
+         <div class="entity-notch" data-placement="right" data-toggle="tooltip" style="background-color: #e74c3c" title="Live">
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          7702
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          5
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          291
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/721156300_IGDB-45x60.jpg" title="SUPERVIVE"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/1023750977_IGDB-45x60.jpg" title="FragPunk"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/323842840313" title="Belle semaine qui commence 📣 ZEVENT ANNONCÉ 📣 zevent.fr pour toutes les informations">
+        <div data-dt="2025-07-28 17:17:53">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          20219
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          183
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          327
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/1471610418_IGDB-45x60.jpg" title="Super Mario Party Jamboree"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/1590205158_IGDB-45x60.jpg" title="Mage Arena"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/323800697465" title="20h : ANNONCE ZEVENT 2025">
+        <div data-dt="2025-07-27 17:30:00">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          55745
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          478
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          115
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/323694988537" title="reDécouverte de SUPERVIVE pour la sortie du jeu 1.0 avec @CrocodyleTV et @Xari ! #SUPERVIVEpartner Publicité (J-2 annonce ZEVENT)">
+        <div data-dt="2025-07-25 11:15:44">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          5949
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          -11
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          209
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/387695647_IGDB-45x60.jpg" title="Artisan TD"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/721156300_IGDB-45x60.jpg" title="SUPERVIVE"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/329829417853" title="BOAT : Dernière émission de la saison 1 en direct à la mer 😎 (Dimanche 20h : annonce du ZEVENT).">
+        <div data-dt="2025-07-24 17:30:10">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          45276
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          338
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          204
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+        </div>
+       </a>
+      </div>
+      <div>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/329738796541" title="SALUT on est là. Puis à 20H : FightForSub Fall Guys à  ! (J-4 annonce ZEVENT). DEMAIN 20h Dernière de BOAT">
+        <div data-dt="2025-07-23 16:18:00">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          13680
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          -33
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          187
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/512980_IGDB-45x60.jpg" title="Fall Guys"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/247816922_IGDB-45x60.jpg" title="The King is Watching"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/323570799097" title="ON ESSAYE DES TRUCS qui viennent de sortir car c'est impossible de résister (J-5 annonce ZEVENT)">
+        <div data-dt="2025-07-22 18:21:35">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          9091
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          -35
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          253
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/247816922_IGDB-45x60.jpg" title="The King is Watching"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/324718764412" title="GROSSE SOIRÉE. J-6 Annonce ZEVENT, dernière de BOAT saison 1 jeudi soir 20h, FFS fall guys mercredi, Soirée du lundi ce soir haaaaaa">
+        <div data-dt="2025-07-21 17:50:00">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          14181
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          48
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          265
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/1418178189_IGDB-45x60.jpg" title="Guilty as Sock!"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/323464627065" title="MANDATORY vs VALIANT (0-0) en direct du Hangar en viewing party avec du public ! (3e match de poule pour être seed 1)">
+        <div data-dt="2025-07-20 14:50:08">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          15694
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          18
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          204
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/516575_IGDB-45x60.jpg" title="VALORANT"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/323409096697" title="LAN PUBG au Hangar, 50 participants en duo jusqu'à 23h ! (LeHangar.GG). Demain 17h VIEWING PARTY Mandatory vs Valiant ici même">
+        <div data-dt="2025-07-19 11:51:11">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          13926
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          45
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          553
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/493057_IGDB-45x60.jpg" title="PUBG: BATTLEGROUNDS"/>
+        </div>
+       </a>
+      </div>
+      <div>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/324493056124" title="EVENEMENT The Crucible, ON FAIT DES POINTS avec la guilde ft. @Eventis et @Fusiow ! Publicité (Samedi LAN PUBG, Dimanche 17h Match Valorant)">
+        <div data-dt="2025-07-17 16:54:00">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          5332
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          -18
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          261
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/417528_IGDB-45x60.jpg" title="Albion Online"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/323265007993" title="Bonjour (Samedi LAN PUBG, Dimanche MDR vs Valiant 17h venez à la viewing party : LeHangar.GG)">
+        <div data-dt="2025-07-16 15:44:16">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          11611
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          -21
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          210
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-static/404_boxart-45x60.jpg" title="Variety"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/963081133_IGDB-45x60.jpg" title="Reclaim the Sea"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/324382878972" title="On teste des trucs qui sortent/vont sortir bientôt. (Samedi LAN PUBG, Dimanche MDR vs Valiant 17h venez à la viewing party : LeHangar.GG)">
+        <div data-dt="2025-07-15 17:01:10">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          8554
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          -41
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          353
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/102014032_IGDB-45x60.jpg" title="He is Coming"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/963081133_IGDB-45x60.jpg" title="Reclaim the Sea"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/328825633405" title="Mandatory vs F9, BO3 (match 2/3 des poules du split 3 VCL) puis soirée AOE IV entre débutants">
+        <div data-dt="2025-07-13 14:53:23">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          11453
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          1
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          471
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/498482_IGDB-45x60.jpg" title="Age of Empires IV"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/516575_IGDB-45x60.jpg" title="VALORANT"/>
+        </div>
+       </a>
+       <a class="entity entity-line" data-toggle="tooltip" href="/zerator/streams/328731374205" title="SALUT C'EST SAMEDI (demain 17h match MDR Valorant, samedi prochain LAN PUBG, inscrivez-vous sur LeHangar.gg)">
+        <div data-dt="2025-07-12 15:11:04">
+        </div>
+        <div>
+         <div class="to-number-lg">
+          6873
+         </div>
+        </div>
+        <div>
+         <div class="to-number-lg">
+          -13
+         </div>
+        </div>
+        <div>
+         <div class="to-time-lg">
+          343
+         </div>
+        </div>
+        <div>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/417528_IGDB-45x60.jpg" title="Albion Online"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/509658-45x60.jpg" title="Just Chatting"/>
+         <img data-toggle="tooltip" src="https://static-cdn.jtvnw.net/ttv-boxart/1264310518_IGDB-45x60.jpg" title="Marvel Rivals"/>
+        </div>
+       </a>
+      </div>
+     </div>
+     <div class="link-more" style="margin-top:0">
+      <a href="/zerator/streams">
+       <i class="fas fa-angle-down fa-fw">
+       </i>
+       VIEW MORE
+      </a>
+     </div>
+    </section>
+    <section class="row">
+     <div class="col-md-3 col-sm-4">
+      <ul class="list-group text-center">
+       <li class="list-group-item list-group-item-soft">
+        <div class="headline">
+         Streamer Profile
+        </div>
+       </li>
+       <li class="list-group-item">
+        <div id="mini-profile">
+         <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/599b546a-c27f-4684-93ff-5eeecd01fb2b-profile_image-300x300.png"/>
+         <h4 style="font-size:23px;font-weight:bold;">
+          ZeratoR
+         </h4>
+         <div data-toggle="tooltip" title="Algorithmic rank assigned to the most popular streamers. Based on avg. viewers, followers,
+                                views and stream time for the last 30 days out of all Twitch streamers that had broadcast last month">
+          Ranked
+          <b>
+           #
+           <b class="to-number">
+            124
+           </b>
+          </b>
+         </div>
+         <div style="font-size:14px;opacity:.7">
+          <b>
+           #
+           <b class="to-number">
+            9
+           </b>
+          </b>
+          French channel
+         </div>
+        </div>
+       </li>
+       <li class="list-group-item">
+        <span class="label label-danger">
+         streaming now
+        </span>
+       </li>
+       <li class="list-group-item">
+        <div style="display: inline-block;">
+         <div style="font-size:12px">
+          Followers
+         </div>
+         <div>
+          <span style="color:#3498DB">
+           ●
+          </span>
+          <span class="to-number">
+           1607048
+          </span>
+         </div>
+        </div>
+        <div style="display: inline-block;margin-left: 20px;" title="30 days">
+         <div style="font-size:12px">
+          Avg viewers
+         </div>
+         <div>
+          <span style="color:#18BC9C">
+           ●
+          </span>
+          <span class="to-number">
+           10003
+          </span>
+         </div>
+        </div>
+       </li>
+       <li class="list-group-item">
+        <div style="display: inline-block;">
+         <div style="font-size:12px">
+          Language
+         </div>
+         <div>
+          <a class="label label-soft" href="/languages/French">
+           French
+          </a>
+         </div>
+        </div>
+        <div style="display: inline-block;margin-left: 15px;" title="2013-03-25 23:44:28">
+         <div style="font-size:12px">
+          Created
+         </div>
+         <div>
+          <span class="label label-soft to-date">
+           2013-03-25 23:44:28
+          </span>
+         </div>
+        </div>
+        <div style="display: inline-block;margin-left: 15px;">
+         <div style="font-size:12px">
+          Status
+         </div>
+         <div>
+          <span class="label label-soft">
+           Partner
+          </span>
+         </div>
+        </div>
+       </li>
+       <li class="list-group-item">
+        <div style="word-wrap:break-word;font-size:12px;">
+         Entrepreneur - Twitch partner - CEO @Unexpected_std &amp; @MandatoryGG &amp; Founder ZEVENT - Casu à mon grand dam mais j'organise des trucs. - contact : @alexdach on Twitter or
+         <a class="__cf_email__" data-cfemail="b2d6d3d1daf2c8d7c0d3c6ddc09cc6c4" href="/cdn-cgi/l/email-protection">
+          [email protected]
+         </a>
+         (we read emails)
+        </div>
+       </li>
+       <li class="list-group-item">
+        <a href="https://www.twitch.tv/zerator" target="_blank">
+         <span>
+          Twitch Page
+         </span>
+         <i class="fas fa-external-link-alt fa-fw">
+         </i>
+        </a>
+       </li>
+      </ul>
+      <div class="panel panel-default">
+       <div class="panel-heading">
+        <div class="headline text-center" id="related-title">
+        </div>
+       </div>
+       <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+       </script>
+       <script id="related-template" type="text/template">
+        <tr>
+                        <td class="image-cell">
+                            <img class="img-circle" src="<%= logo %>">
+                        </td>
+                        <td>
+                            <a href="/<%= name %>" class="item-title"><%= display_name %></a>
+                            <%= live ? '<i class="twitch-live-circle"></i>' : '' %>
+                            <div class="small meta">
+                                <%= language %>
+                                <%= partner == 1 ? 'Partner' : '' %>
+                                <%= partner == 2 ? 'Affiliate' : '' %>
+                                <%= mature ? '18+' : '' %>
+                            </div>
+                        </td>
+                    </tr>
+       </script>
+       <table class="tops table table-condensed table-hover" id="related-table">
+        <tbody>
+         <tr class="hidden" id="related-more">
+          <td colspan="2">
+           <div class="link-more" style="margin: 10px 0">
+            <i class="fas fa-angle-down fa-fw">
+            </i>
+            SHOW MORE
+           </div>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="col-md-9 col-sm-8">
+      <section style="margin-top:0">
+       <h4 class="headline">
+        Channel Performance Over Time
+       </h4>
+       <div id="chart-statistics">
+        <div class="text-center">
+         Requires at least 2 weeks of tracked streams to render the chart
+        </div>
+       </div>
+      </section>
+      <section>
+       <h4 class="headline">
+        Most Streamed Games
+        <ul class="legend list-inline text-uppercase">
+         <li>
+          <i class="fas fa-fw fa-circle" style="color:#18BC9C">
+          </i>
+          Average Viewers
+          <small>
+           recent
+          </small>
+         </li>
+         <li>
+          <i class="fas fa-fw fa-circle" style="color:#3498db">
+          </i>
+          Followers
+         </li>
+         <li>
+          <i class="fas fa-fw fa-circle" style="color:#2c3e50">
+          </i>
+          Time Streamed
+         </li>
+        </ul>
+       </h4>
+       <div id="channel-games">
+        <a class="entity" href="/zerator/games/18122">
+         <div data-toggle="tooltip" title="World of Warcraft">
+          <img src="https://static-cdn.jtvnw.net/ttv-boxart/18122_IGDB-120x160.jpg"/>
+         </div>
+         <div class="body">
+          <div style="background-color:#18BC9C" title="avg. viewers">
+           <span class="to-number-lg">
+            11581
+           </span>
+          </div>
+          <div style="background-color:#3498db" title="followers">
+           <span class="to-number-lg">
+            51245
+           </span>
+          </div>
+          <div style="background-color:#2c3e50" title="time">
+           <span class="to-time">
+            100504
+           </span>
+          </div>
+         </div>
+        </a>
+        <a class="entity" href="/zerator/games/516575">
+         <div data-toggle="tooltip" title="VALORANT">
+          <img src="https://static-cdn.jtvnw.net/ttv-boxart/516575_IGDB-120x160.jpg"/>
+         </div>
+         <div class="body">
+          <div style="background-color:#18BC9C" title="avg. viewers">
+           <span class="to-number-lg">
+            10052
+           </span>
+          </div>
+          <div style="background-color:#3498db" title="followers">
+           <span class="to-number-lg">
+            68157
+           </span>
+          </div>
+          <div style="background-color:#2c3e50" title="time">
+           <span class="to-time">
+            62320
+           </span>
+          </div>
+         </div>
+        </a>
+        <a class="entity" href="/zerator/games/509658">
+         <div data-toggle="tooltip" title="Just Chatting">
+          <img src="https://static-cdn.jtvnw.net/ttv-boxart/509658-120x160.jpg"/>
+         </div>
+         <div class="body">
+          <div style="background-color:#18BC9C" title="avg. viewers">
+           <span class="to-number-lg">
+            22868
+           </span>
+          </div>
+          <div style="background-color:#3498db" title="followers">
+           <span class="to-number-lg">
+            68625
+           </span>
+          </div>
+          <div style="background-color:#2c3e50" title="time">
+           <span class="to-time">
+            36656
+           </span>
+          </div>
+         </div>
+        </a>
+        <a class="entity" href="/zerator/games/493057">
+         <div data-toggle="tooltip" title="PUBG: BATTLEGROUNDS">
+          <img src="https://static-cdn.jtvnw.net/ttv-boxart/493057_IGDB-120x160.jpg"/>
+         </div>
+         <div class="body">
+          <div style="background-color:#18BC9C" title="avg. viewers">
+           <span class="to-number-lg">
+            10474
+           </span>
+          </div>
+          <div style="background-color:#3498db" title="followers">
+           <span class="to-number-lg">
+            40389
+           </span>
+          </div>
+          <div style="background-color:#2c3e50" title="time">
+           <span class="to-time">
+            26669
+           </span>
+          </div>
+         </div>
+        </a>
+        <a class="entity" href="/zerator/games/509663">
+         <div data-toggle="tooltip" title="Special Events">
+          <img src="https://static-cdn.jtvnw.net/ttv-boxart/509663-120x160.jpg"/>
+         </div>
+         <div class="body">
+          <div style="background-color:#18BC9C" title="avg. viewers">
+           <span class="to-number-lg">
+            12759
+           </span>
+          </div>
+          <div style="background-color:#3498db" title="followers">
+           <span class="to-number-lg">
+            384155
+           </span>
+          </div>
+          <div style="background-color:#2c3e50" title="time">
+           <span class="to-time">
+            26187
+           </span>
+          </div>
+         </div>
+        </a>
+        <a class="entity" href="/zerator/games/687129551">
+         <div data-toggle="tooltip" title="Trackmania">
+          <img src="https://static-cdn.jtvnw.net/ttv-boxart/687129551_IGDB-120x160.jpg"/>
+         </div>
+         <div class="body">
+          <div style="background-color:#18BC9C" title="avg. viewers">
+           <span class="to-number-lg">
+            10794
+           </span>
+          </div>
+          <div style="background-color:#3498db" title="followers">
+           <span class="to-number-lg">
+            20338
+           </span>
+          </div>
+          <div style="background-color:#2c3e50" title="time">
+           <span class="to-time">
+            18482
+           </span>
+          </div>
+         </div>
+        </a>
+       </div>
+       <div class="link-more">
+        <a href="/zerator/games">
+         <i class="fas fa-angle-down fa-fw">
+         </i>
+         VIEW MORE
+        </a>
+       </div>
+      </section>
+      <section class="row">
+       <div class="col-sm-6">
+        <div class="panel panel-default" style="margin-bottom:0">
+         <div class="panel-heading">
+          <div class="headline text-center">
+           Average Stream
+          </div>
+         </div>
+         <table class="table">
+          <tr>
+           <td>
+            Games streamed
+           </td>
+           <td class="text-right">
+            1.6
+           </td>
+          </tr>
+          <tr>
+           <td>
+            Followers
+           </td>
+           <td class="text-right">
+            <span class="to-number">
+             604
+            </span>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            Duration
+           </td>
+           <td class="text-right">
+            <span class="to-time">
+             303
+            </span>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            Hours Watched
+           </td>
+           <td class="text-right">
+            <span class="to-number-lg">
+             63132
+            </span>
+           </td>
+          </tr>
+         </table>
+        </div>
+       </div>
+       <div class="col-sm-6">
+        <div class="panel panel-default" style="margin-bottom:0">
+         <div class="panel-heading">
+          <div class="headline text-center">
+           Various Metrics
+          </div>
+         </div>
+         <table class="table">
+          <tr>
+           <td>
+            Active days per week
+           </td>
+           <td class="text-right">
+            4.9 / 7
+           </td>
+          </tr>
+          <tr>
+           <td>
+            Total games played
+           </td>
+           <td class="text-right">
+            580
+           </td>
+          </tr>
+          <tr>
+           <td>
+            Usually starts stream at
+           </td>
+           <td class="text-right" id="starts-at">
+            17:52
+           </td>
+          </tr>
+          <tr>
+           <td>
+            Overall Activity
+           </td>
+           <td class="text-right">
+            2216 of 3177 days
+           </td>
+          </tr>
+         </table>
+        </div>
+       </div>
+      </section>
+      <section>
+       <h4 class="headline">
+        Popular Clips
+       </h4>
+       <div class="loader" id="loader-clips" style="margin: 4% 0 8%;">
+        <div class="loader-center-content">
+         <div class="loader-loading-spinner">
+         </div>
+        </div>
+       </div>
+       <div class="clips-grid" id="clips">
+       </div>
+       <div class="clips-more hidden">
+        <a href="/zerator/clips">
+         <i class="fas fa-angle-down fa-fw">
+         </i>
+         VIEW MORE
+        </a>
+       </div>
+      </section>
+      <section>
+       <div class="row">
+        <div class="col-sm-6">
+         <h4 class="headline">
+          Followers
+         </h4>
+         <div id="chart-followers">
+          <div class="text-center">
+           Requires atleast 3 datapoints to render the chart
+          </div>
+         </div>
+        </div>
+        <div class="col-sm-6">
+         <h4 class="headline">
+          Hours Watched
+         </h4>
+         <div id="chart-hours-watched">
+          <div class="text-center">
+           Requires atleast 3 datapoints to render the chart
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="link-more">
+        <a href="/zerator/statistics">
+         <i class="fas fa-angle-down fa-fw">
+         </i>
+         VIEW MORE
+        </a>
+       </div>
+      </section>
+     </div>
+    </section>
+   </div>
+  </div>
+  <meta content="eyJpbnRlcnZhbCI6Im1vbnRoIiwic3RhdGlzdGljcyI6#1siMjAxNi0xMS0wMSIsNTA0MSwxMDU3MywyOTI1LDI5NTIs#3sia#QiOjQ5MjU1Mywid2VpZ2h0Ijo2MX0seyJpZCI6Mjc0NzEsIndla#dodCI6NDJ9LHsia#QiOjQxNzc1Miwid2VpZ2h0Ijo0MX1dXSxbIjIwMTYtMTItMDEiLDQ3NjAsOTg3MCwyNzEyLDM0OTgs#3sia#QiOjI3NDcxLCJ3Z#lnaHQiOjQ4fSx7ImlkIjo0MTkyLCJ3Z#lnaHQiOjQ0fSx7ImlkIjo0OTI1NTMsIndla#dodCI6NDB9XV0s#yIyMDE3LTAxLTAxIiw1ODk2LDExNDU4LDY2OTIsMTAzMDUs#3sia#QiOjQxNzc1Miwid2VpZ2h0IjoxMjN9LHsia#QiOjMyMzk5LCJ3Z#lnaHQiOjg2fSx7ImlkIjo0MTkyLCJ3Z#lnaHQiOjgzfV1dLFsiMjAxNy0wMi0wMSIsNTk4NSwyMDQyMiw2MTMyLDgxNzAs#3sia#QiOjIxNzc5LCJ3Z#lnaHQiOjEzMH0seyJpZCI6NDk1NDk2LCJ3Z#lnaHQiOjEwOH0seyJpZCI6NDE3NzUyLCJ3Z#lnaHQiOjk2fV1dLFsiMjAxNy0wMy0wMSIsNDIwNCwxNDMyNCw2NDcwLDYzMzAs#3sia#QiOjIxNzc5LCJ3Z#lnaHQiOjExOX0seyJpZCI6NDE3NzUyLCJ3Z#lnaHQiOjg1fSx7ImlkIjo0MTc1MjgsIndla#dodCI6NzJ9XV0s#yIyMDE3LTA0LTAxIiwzODE1LDg5MDcsNTUyOSw1NTg1LFt7ImlkIjoyMTc3OSwid2VpZ2h0IjoxMjB9LHsia#QiOjQxNzg5Miwid2VpZ2h0Ijo4NH0seyJpZCI6NDE3NzUyLCJ3Z#lnaHQiOjc4fV1dLFsiMjAxNy0wNS0wMSIsNTQwOCwxMjI2OSw1NDI3LDc5Nzcs#3sia#QiOjc5MjMxLCJ3Z#lnaHQiOjE2NX0seyJpZCI6Mjc0NzEsIndla#dodCI6NzF9LHsia#QiOjQxNzc1Miwid2VpZ2h0Ijo1N31dXSxbIjIwMTctMDYtMDEiLDk3NjUsMzg3OTgsMjAyMiw3Mjc1LFt7ImlkIjo3OTIzMSwid2VpZ2h0Ijo2MH0seyJpZCI6NDE3NzUyLCJ3Z#lnaHQiOjU0fSx7ImlkIjo0OTcxNDcsIndla#dodCI6MTl9XV0s#yIyMDE3LTA3LTAxIiw2ODA0LDUwNzk2LDQ2NTUsMTM4OTIs#3sia#QiOjQxNzUyOCwid2VpZ2h0IjoxNDl9LHsia#QiOjc5MjMxLCJ3Z#lnaHQiOjY3fSx7ImlkIjo0OTMwNTcsIndla#dodCI6NTR9XV0s#yIyMDE3LTA4LTAxIiw1MzEzLDE1MzExLDMxMzIsOTY0NixbeyJpZCI6NDkzMDU3LCJ3Z#lnaHQiOjIwOH0seyJpZCI6NDE3NzUyLCJ3Z#lnaHQiOjIxfSx7ImlkIjo0MDQ3NzYsIndla#dodCI6MTh9XV0s#yIyMDE3LTA5LTAxIiw5ODA1LDczMjAxLDU5OTAsMjgwMzgs#3sia#QiOjQ5MzA1Nywid2VpZ2h0IjoyNjB9LHsia#QiOjQ5MjU1Mywid2VpZ2h0Ijo4NX0seyJpZCI6NDE3NzUyLCJ3Z#lnaHQiOjcxfV1dLFsiMjAxNy0xMC0wMSIsNTM2OCwxMjU3Miw2ODg2LDg1NjMs#3sia#QiOjQ5MzA1Nywid2VpZ2h0IjoyMTh9LHsia#QiOjMzMjE0LCJ3Z#lnaHQiOjYxfSx7ImlkIjo0NTkwNjQsIndla#dodCI6NjB9XV0s#yIyMDE3LTExLTAxIiw4MzMxLDM0MDAyLDQ1MjAsMTExMDMs#3sia#QiOjQ5MzA1Nywid2VpZ2h0IjoxMzB9LHsia#QiOjQxNzc1Miwid2VpZ2h0Ijo3Nn0seyJpZCI6NDkyOTY3LCJ3Z#lnaHQiOjM3fV1dLFsiMjAxNy0xMi0wMSIsNzQ0NiwyNzc3MCw1NDMwLDk2OTks#3sia#QiOjQ5MzA1Nywid2VpZ2h0Ijo5M30seyJpZCI6NTAwNTk2LCJ3Z#lnaHQiOjY0fSx7ImlkIjoxODEyMiwid2VpZ2h0Ijo2MX1dXSxbIjIwMTgtMDEtMDEiLDY3MjEsMTk2ODIsNjQwNSwxMzA0NyxbeyJpZCI6MzMyMTQsIndla#dodCI6MjczfSx7ImlkIjo0OTAzNzcsIndla#dodCI6ODF9LHsia#QiOjQxNzc1Miwid2VpZ2h0Ijo0OX1dXSxbIjIwMTgtMDItMDEiLDY1MTYsMTU0NTAsNzYyMCwxNzg1NCxbeyJpZCI6NDk2OTAyLCJ3Z#lnaHQiOjI4NX0seyJpZCI6MzMyMTQsIndla#dodCI6MjQ5fSx7ImlkIjo0MTc3NTIsIndla#dodCI6NDV9XV0s#yIyMDE4LTAzLTAxIiw3NzkwLDIyODAzLDkzOTcsMTcxMzcs#3sia#QiOjQ5MDM3Nywid2VpZ2h0IjozNDB9LHsia#QiOjc5MjMxLCJ3Z#lnaHQiOjE3M30seyJpZCI6NDkzMDU3LCJ3Z#lnaHQiOjEyOH1dXSxbIjIwMTgtMDQtMDEiLDgzNjEsMzg4NzYsNTc1OCw5OTk2LFt7ImlkIjo0OTAzNzcsIndla#dodCI6MTQxfSx7ImlkIjo0OTMwMzYsIndla#dodCI6NzJ9LHsia#QiOjUwNTQ3OCwid2VpZ2h0Ijo1N31dXSxbIjIwMTgtMDUtMDEiLDE1NzY4LDMxMzM1LDU2NTIsMTUzNzQs#3sia#QiOjc5MjMxLCJ3Z#lnaHQiOjMwMH0seyJpZCI6MzMyMTQsIndla#dodCI6NTZ9LHsia#QiOjQ5MzA1Nywid2VpZ2h0Ijo0NX1dXSxbIjIwMTgtMDYtMDEiLDE2MzMwLDY3MjYxLDUwMjQsMTU3NTQs#3sia#QiOjc5MjMxLCJ3Z#lnaHQiOjEyNn0seyJpZCI6NDk0NzE3LCJ3Z#lnaHQiOjEyMX0seyJpZCI6MzMyMTQsIndla#dodCI6MTA2fV1dLFsiMjAxOC0wNy0wMSIsNjYzMCwxNTQ1Nyw1MjEwLDc0MDQs#3sia#QiOjE4MTIyLCJ3Z#lnaHQiOjI0MH0seyJpZCI6NDkzMDU3LCJ3Z#lnaHQiOjEyN30seyJpZCI6NDkwMzc3LCJ3Z#lnaHQiOjQ0fV1dLFsiMjAxOC0wOC0wMSIsNzYwMiwzMTE4Miw4ODUyLDExMDU0LFt7ImlkIjoxODEyMiwid2VpZ2h0Ijo3MTJ9LHsia#QiOjQ5MzA1Nywid2VpZ2h0Ijo1OX0seyJpZCI6NDkwMzc3LCJ3Z#lnaHQiOjM0fV1dLFsiMjAxOC0wOS0wMSIsNTQ4MSw5MjQ4LDk3ODYsNTEzOCxbeyJpZCI6MTgxMjIsIndla#dodCI6OTU2fV1dLFsiMjAxOC0xMC0wMSIsNzk2MCwyNTY5MSw1MzM1LDU3Njgs#3sia#QiOjQ5MzA1Nywid2VpZ2h0IjoxNTF9LHsia#QiOjUwMjkxOCwid2VpZ2h0Ijo3N30seyJpZCI6NzkyMzEsIndla#dodCI6NzJ9XV0s#yIyMDE4LTExLTAxIiwyMzI2NiwxNzUyOTAsNDAwNSwzOTcwMixbeyJpZCI6NTA5NjYzLCJ3Z#lnaHQiOjIzNH0seyJpZCI6MTgxMjIsIndla#dodCI6NTR9LHsia#QiOjUwMjMxMywid2VpZ2h0IjozMH1dXSxbIjIwMTgtMTItMDEiLDg3MTksMzA2NzMsMzA3Myw5NTQ0LFt7ImlkIjo0OTY5MDIsIndla#dodCI6ODN9LHsia#QiOjQxNzg5Miwid2VpZ2h0IjozOX0seyJpZCI6NDkwMzc3LCJ3Z#lnaHQiOjMzfV1dLFsiMjAxOS0wMS0wMSIsNjUxNSwxNzM1MywzNzM4LDc0Mzks#3sia#QiOjQ5MzA1Nywid2VpZ2h0Ijo3MH0seyJpZCI6NTAyMDE0LCJ3Z#lnaHQiOjQ1fSx7ImlkIjo0OTEyMDgsIndla#dodCI6NDF9XV0s#yIyMDE5LTAyLTAxIiw4OTc0LDg1NDc3LDU1NTAsMTQ0NDEs#3sia#QiOjQ5MzA1Nywid2VpZ2h0IjoxNzh9LHsia#QiOjQ5MjU1Mywid2VpZ2h0Ijo1Nn0seyJpZCI6NDkxODcwLCJ3Z#lnaHQiOjQxfV1dLFsiMjAxOS0wMy0wMSIsNjUyMiwxNDYyMSw2NTAyLDc1MDQs#3sia#QiOjQ5MDM3Nywid2VpZ2h0IjoyMTd9LHsia#QiOjc5MjMxLCJ3Z#lnaHQiOjk4fSx7ImlkIjo0OTMwNTcsIndla#dodCI6ODJ9XV0s#yIyMDE5LTA0LTAxIiw3MTg2LDIwNDY1LDM3OTcsNTE3MCxbeyJpZCI6NTA2NDU2LCJ3Z#lnaHQiOjcyfSx7ImlkIjo3OTIzMSwid2VpZ2h0Ijo2MH0seyJpZCI6NDk4NjM4LCJ3Z#lnaHQiOjUzfV1dLFsiMjAxOS0wNS0wMSIsMjMzNDYsMTIwMDAyLDEwMDA4LDMzNTU3LFt7ImlkIjoxODEyMiwid2VpZ2h0IjoyOTV9LHsia#QiOjc5MjMxLCJ3Z#lnaHQiOjI0N30seyJpZCI6NTA5NjYzLCJ3Z#lnaHQiOjE2M31dXSxbIjIwMTktMDYtMDEiLDE1MDI2LDg3MTM3LDQ5NzMsMTE5NjYs#3sia#QiOjUwNjQ1OCwid2VpZ2h0IjoxODl9LHsia#QiOjc5MjMxLCJ3Z#lnaHQiOjE1Nn0seyJpZCI6MTgxMjIsIndla#dodCI6NjR9XV0s#yIyMDE5LTA3LTAxIiw2MjQ1LDIwOTc0LDI3NDgsNDM1MCxbeyJpZCI6NTA2NDU4LCJ3Z#lnaHQiOjUzfSx7ImlkIjo1MDk2NTgsIndla#dodCI6NDN9LHsia#QiOjQxNzUyOCwid2VpZ2h0Ijo0Mn1dXSxbIjIwMTktMDgtMDEiLDE0NTUzLDQwMTMxLDc4ODksMTk1NjYs#3sia#QiOjE4MTIyLCJ3Z#lnaHQiOjYwMX0seyJpZCI6NDkwMzc3LCJ3Z#lnaHQiOjUxfSx7ImlkIjozMjM5OSwid2VpZ2h0Ijo1MH1dXSxbIjIwMTktMDktMDEiLDIwNzM1LDI3MzEzMyw3ODYzLDcyNjAwLFt7ImlkIjoxODEyMiwid2VpZ2h0Ijo1MDR9LHsia#QiOjUwOTY2Mywid2VpZ2h0IjoyMTB9LHsia#QiOjQ5MDM3Nywid2VpZ2h0IjoyN31dXSxbIjIwMTktMTAtMDEiLDYzNjIsMjE4MjcsNjY2NCw2NzU1LFt7ImlkIjozMjM5OSwid2VpZ2h0IjoyOTJ9LHsia#QiOjUxMjA1OCwid2VpZ2h0IjoxMDh9LHsia#QiOjE4MTIyLCJ3Z#lnaHQiOjc4fV1dLFsiMjAxOS0xMS0wMSIsOTAyNCwzMDU1Myw2NDk3LDgyMjQs#3sia#QiOjMyMzk5LCJ3Z#lnaHQiOjIxOX0seyJpZCI6NTA2NDU4LCJ3Z#lnaHQiOjkyfSx7ImlkIjo0OTU3NjQsIndla#dodCI6NTN9XV0s#yIyMDE5LTEyLTAxIiwxOTkzMCw1MzgxMyw0NzkxLDExMzUxLFt7ImlkIjo1MDk2NjMsIndla#dodCI6MjM0fSx7ImlkIjo1MDk2NTgsIndla#dodCI6NTF9LHsia#QiOjUwOTg2Miwid2VpZ2h0Ijo0Mn1dXSxbIjIwMjAtMDEtMDEiLDg4NjksNDE1NzksNjY4OSw3NTkzLFt7ImlkIjo0OTg2MzgsIndla#dodCI6MzA2fSx7ImlkIjo1MTIwODYsIndla#dodCI6NTJ9LHsia#QiOjMwOTIxLCJ3Z#lnaHQiOjQ0fV1dLFsiMjAyMC0wMi0wMSIsNjUwNSwzMDI3Nyw1NTc2LDUzNTgs#3sia#QiOjc5MjMxLCJ3Z#lnaHQiOjEzMH0seyJpZCI6NDk4NjM4LCJ3Z#lnaHQiOjExNH0seyJpZCI6MTgxMjIsIndla#dodCI6OTR9XV0s#yIyMDIwLTAzLTAxIiwxMDMzMCw0MDg2OCw2MTc3LDEyMjI3LFt7ImlkIjo1MDY0NTYsIndla#dodCI6MTkyfSx7ImlkIjo0OTU3NjQsIndla#dodCI6MTQ2fSx7ImlkIjo1MDk2NjMsIndla#dodCI6NTh9XV0s#yIyMDIwLTA0LTAxIiw4OTA3LDI4MDA3LDEwNTYwLDMxNTk2LFt7ImlkIjo1MTY1NzUsIndla#dodCI6NzMyfSx7ImlkIjo1MDk1MzgsIndla#dodCI6MTY3fSx7ImlkIjo1MDY0NDIsIndla#dodCI6NDJ9XV0s#yIyMDIwLTA1LTAxIiw4Njk4LDI5MzU3LDgxNTgsMTk1NTAs#3sia#QiOjUxNjU3NSwid2VpZ2h0Ijo0MzF9LHsia#QiOjQ5MTg3MCwid2VpZ2h0IjoxNDZ9LHsia#QiOjQ5MTE4OSwid2VpZ2h0IjoxMTV9XV0s#yIyMDIwLTA2LTAxIiwxMTM2MiwzNjE4MCw3MTMwLDE2ODQ0LFt7ImlkIjo4MjI0LCJ3Z#lnaHQiOjIzM30seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjIyOH0seyJpZCI6NTA4OTQ4LCJ3Z#lnaHQiOjEyNn1dXSxbIjIwMjAtMDctMDEiLDE2NTYzLDEzNDM3MCw3MzgxLDI1MjcxLFt7ImlkIjo4MjI0LCJ3Z#lnaHQiOjMwNH0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjIyOX0seyJpZCI6NTE0MTk0LCJ3Z#lnaHQiOjI2fV1dLFsiMjAyMC0wOC0wMSIsMzkxMDksMTU2ODc2LDUwNTMsMzg5NzMs#3sia#QiOjUxNjU3NSwid2VpZ2h0Ijo3OH0seyJpZCI6NTEyOTg4LCJ3Z#lnaHQiOjQxfSx7ImlkIjo1MTA1ODgsIndla#dodCI6MzV9XV0s#yIyMDIwLTA5LTAxIiw4MDk3LDIzMDA2LDY4MTQsNzQxNixbeyJpZCI6NTE1OTc2LCJ3Z#lnaHQiOjE0NX0seyJpZCI6NTEwMjE4LCJ3Z#lnaHQiOjEzNn0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjEwNX1dXSxbIjIwMjAtMTAtMDEiLDI2NTIzLDMxODE4Miw3OTg5LDg4ODIwLFt7ImlkIjo1MTA1OTAsIndla#dodCI6MjQxfSx7ImlkIjo1MDk2NjMsIndla#dodCI6MjI5fSx7ImlkIjo3MzgxMTUzODMsIndla#dodCI6NzR9XV0s#yIyMDIwLTExLTAxIiw3ODY4LDM0MTE0LDcyMzEsNjk3NyxbeyJpZCI6MTgxMjIsIndla#dodCI6Mjk3fSx7ImlkIjo1MTA1OTAsIndla#dodCI6MTgwfSx7ImlkIjo1MTY1NzUsIndla#dodCI6NzF9XV0s#yIyMDIwLTEyLTAxIiw3NDYzLDE3Mjc2LDEwNjQ5LDQ1MzQs#3sia#QiOjE4MTIyLCJ3Z#lnaHQiOjk5OX0seyJpZCI6NDkxOTI1LCJ3Z#lnaHQiOjE1fSx7ImlkIjo1MTg1MzYsIndla#dodCI6MTN9XV0s#yIyMDIxLTAxLTAxIiwzMDE1LDEyMTM5LDgyOTgsMTExOCxbeyJpZCI6MTgxMjIsIndla#dodCI6NzM3fSx7ImlkIjo3MzgxMTUzODMsIndla#dodCI6NDV9LHsia#QiOjQ5MDk0OCwid2VpZ2h0IjozfV1dLFsiMjAyMS0wMi0wMSIsNjk2OCwyNzM4OSw1OTEwLDU1MjQs#3sia#QiOjUwODQ1NSwid2VpZ2h0IjoyMzJ9LHsia#QiOjE4MTIyLCJ3Z#lnaHQiOjkyfSx7ImlkIjo1MDk2NTgsIndla#dodCI6NDN9XV0s#yIyMDIxLTAzLTAxIiw3MTc2LDI2MjQ3LDc4NTYsODQwNCxbeyJpZCI6MTUzNTU2NTc4NCwid2VpZ2h0IjoxNjZ9LHsia#QiOjUwNjQ1Niwid2VpZ2h0IjoxMTF9LHsia#QiOjUwOTY1OCwid2VpZ2h0Ijo3M31dXSxbIjIwMjEtMDQtMDEiLDg0MDEsNTQxNzUsOTE5NCwxMTc3NixbeyJpZCI6MzI5ODIsIndla#dodCI6MjE3fSx7ImlkIjo1MDY0NTYsIndla#dodCI6MTE0fSx7ImlkIjo1MTY1NzUsIndla#dodCI6MTA1fV1dLFsiMjAyMS0wNS0wMSIsMTA5ODcsNzY1ODMsNTU0NSwxMDYwNCxbeyJpZCI6MzI5ODIsIndla#dodCI6MTU1fSx7ImlkIjo0OTMwMzYsIndla#dodCI6MTEyfSx7ImlkIjo1MTY1NzUsIndla#dodCI6ODB9XV0s#yIyMDIxLTA2LTAxIiw0MTc1MiwyMzk3MDAsNzc4MSw0NDc2MSxbeyJpZCI6NzM4MTE1MzgzLCJ3Z#lnaHQiOjIyNn0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjE0MX0seyJpZCI6NTA5NjYzLCJ3Z#lnaHQiOjUzfV1dLFsiMjAyMS0wNy0wMSIsMTI4MDcsNzMzOTcsODc4MCwxNDAyMCxbeyJpZCI6NDkzNTk3LCJ3Z#lnaHQiOjQyMn0seyJpZCI6NzM4MTE1MzgzLCJ3Z#lnaHQiOjIwOX0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjEwMn1dXSxbIjIwMjEtMDgtMDEiLDEwNzczLDQzMDM2LDY2NzUsNzkxNixbeyJpZCI6NDkzNTk3LCJ3Z#lnaHQiOjkzfSx7ImlkIjo0OTMwMzYsIndla#dodCI6ODJ9LHsia#QiOjY1MDU0Mzc4Miwid2VpZ2h0Ijo3M31dXSxbIjIwMjEtMDktMDEiLDExNzMxLDM1MDc1LDgzNjUsMTM5Mjgs#3sia#QiOjQ5MzU5Nywid2VpZ2h0IjozMTN9LHsia#QiOjUwMTkzMCwid2VpZ2h0IjoxMjd9LHsia#QiOjE3ODgzMjYxMjYsIndla#dodCI6Nzd9XV0s#yIyMDIxLTEwLTAxIiwyMTQ3NSw3MDcwNzEsODkzMywxNTMwMzcs#3sia#QiOjQ5MzU5Nywid2VpZ2h0Ijo0MDd9LHsia#QiOjUwOTY2Mywid2VpZ2h0IjoyMjl9LHsia#QiOjQ5MzAzNiwid2VpZ2h0Ijo1MH1dXSxbIjIwMjEtMTEtMDEiLDExOTAzLDU3MTI5OSw0NjA3LDI0ODI3LFt7ImlkIjo0OTg0ODIsIndla#dodCI6MTA2fSx7ImlkIjo1MTY1NzUsIndla#dodCI6OTB9LHsia#QiOjE3ODgzMjYxMjYsIndla#dodCI6NjV9XV0s#yIyMDIxLTEyLTAxIiw3MjA4LDE4MzcyLDY3NjEsMjIxNCxbeyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjIyN30seyJpZCI6MTc4ODMyNjEyNiwid2VpZ2h0Ijo5Nn0seyJpZCI6NDkyNTUzLCJ3Z#lnaHQiOjc3fV1dLFsiMjAyMi0wMS0wMSIsOTMzNCwzMjE0OSw3MjY0LDQ2NTQs#3sia#QiOjUxNjU3NSwid2VpZ2h0IjoyMjR9LHsia#QiOjQ5ODYzOCwid2VpZ2h0Ijo5MH0seyJpZCI6MTgzMzY5NDYxMiwid2VpZ2h0Ijo3NH1dXSxbIjIwMjItMDItMDEiLDE3MDYyLDQ1ODQzLDg3NDYsMTgyNjcs#3sia#QiOjQ5MDEwMCwid2VpZ2h0Ijo1NjB9LHsia#QiOjUxMjk1Mywid2VpZ2h0Ijo4N30seyJpZCI6NDk4NjM4LCJ3Z#lnaHQiOjc5fV1dLFsiMjAyMi0wMy0wMSIsMTA4NDEsNTYwOTQsMzI4NCwzMzU3LFt7ImlkIjoxNzE2NTE2NjUxLCJ3Z#lnaHQiOjEwOX0seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjY3fSx7ImlkIjo1MTY1NzUsIndla#dodCI6Njd9XV0s#yIyMDIyLTA0LTAxIiw0MTg0MywxOTg4MTAsODczNyw2OTk2MSxbeyJpZCI6Njg3MTI5NTUxLCJ3Z#lnaHQiOjI1Nn0seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjE0MH0seyJpZCI6MTYwNTU1NTAzLCJ3Z#lnaHQiOjU5fV1dLFsiMjAyMi0wNS0wMSIsMTY5NDAsOTM4OTcsOTMyMCw3ODg4LFt7ImlkIjo2ODcxMjk1NTEsIndla#dodCI6MjY5fSx7ImlkIjo3NjY1NDg2NjgsIndla#dodCI6MTcyfSx7ImlkIjoxNjA1NTU1MDMsIndla#dodCI6MTU5fV1dLFsiMjAyMi0wNi0wMSIsMjM3MDgsMTgwNTgzLDQ2OTAsMTI0Njks#3sia#QiOjUxNjU3NSwid2VpZ2h0Ijo5MX0seyJpZCI6NDI4NDUyODMyLCJ3Z#lnaHQiOjgzfSx7ImlkIjoxMjYyODk0NDY0LCJ3Z#lnaHQiOjQxfV1dLFsiMjAyMi0wNy0wMSIsMTIwNTQsODQzMDAsNjE0OCw0OTM4LFt7ImlkIjoxMTE3Miwid2VpZ2h0IjoyODl9LHsia#QiOjUwOTY1OCwid2VpZ2h0Ijo2Mn0seyJpZCI6MjUxMTk5OTkyLCJ3Z#lnaHQiOjUyfV1dLFsiMjAyMi0wOC0wMSIsOTc0NCwyMjMyOCw2NTU2LDIyODEs#3sia#QiOjUxOTEwMywid2VpZ2h0IjoxNzV9LHsia#QiOjUxNjE3Mzk4NCwid2VpZ2h0Ijo5Mn0seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjg2fV1dLFsiMjAyMi0wOS0wMSIsMjYyNTIsMjg5NzA2LDY3MTgsNDA4MDcs#3sia#QiOjE4MTIyLCJ3Z#lnaHQiOjI0OH0seyJpZCI6NTA5NjYzLCJ3Z#lnaHQiOjIyMn0seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjgzfV1dLFsiMjAyMi0xMC0wMSIsOTY5NCwyMTQwOCw3NjM2LDM1ODYs#3sia#QiOjUxNjU3NSwid2VpZ2h0IjoyMTF9LHsia#QiOjE4MTIyLCJ3Z#lnaHQiOjEyMn0seyJpZCI6Mjc0NzEsIndla#dodCI6MTAwfV1dLFsiMjAyMi0xMS0wMSIsMTIwNzUsMzM0MjMsNzc5Myw2MTA5LFt7ImlkIjo1MTY1NzUsIndla#dodCI6MjU1fSx7ImlkIjoxODEyMiwid2VpZ2h0IjoxOTd9LHsia#QiOjQ5MzU5Nywid2VpZ2h0IjoxMjF9XV0s#yIyMDIyLTEyLTAxIiw5MTM1LDIyNTUzLDg0MzksODY0LFt7ImlkIjoxODEyMiwid2VpZ2h0Ijo2ODd9LHsia#QiOjUxNjU3NSwid2VpZ2h0Ijo1M30seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjI4fV1dLFsiMjAyMy0wMS0wMSIsNzAxMSwyMzIxNSw4NjIzLDI5OSxbeyJpZCI6MjQyNDEsIndla#dodCI6MjI2fSx7ImlkIjo1NzM3MDA5OTIsIndla#dodCI6MTMwfSx7ImlkIjoxNzUyMzUzNzksIndla#dodCI6MTEyfV1dLFsiMjAyMy0wMi0wMSIsODMzNSwyMDM2NSw1MjgwLDM1MyxbeyJpZCI6MTc1MjM1Mzc5LCJ3Z#lnaHQiOjExM30seyJpZCI6MTA5NTI3NTY1MCwid2VpZ2h0Ijo1N30seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjQyfV1dLFsiMjAyMy0wMy0wMSIsMTA5MDcsNzUzNTMsNjMxOSwzNTc1LFt7ImlkIjo1MTUwMjQsIndla#dodCI6MTEwfSx7ImlkIjo1MTY1NzUsIndla#dodCI6OTB9LHsia#QiOjUwOTY1OCwid2VpZ2h0Ijo3NX1dXSxbIjIwMjMtMDQtMDEiLDEzMzQwLDMzNDE5LDc4ODEsNTI0NixbeyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjE5MH0seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjkxfSx7ImlkIjo2ODcxMjk1NTEsIndla#dodCI6ODd9XV0s#yIyMDIzLTA1LTAxIiwzMjQzNywxNTg3NTEsOTAwNSwyMDAwMixbeyJpZCI6Njg3MTI5NTUxLCJ3Z#lnaHQiOjMzNX0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjExOH0seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjU2fV1dLFsiMjAyMy0wNi0wMSIsMTUwMDUsNjc0ODEsODU0OSw4MTMwLFt7ImlkIjo1MTUwMjQsIndla#dodCI6NDQ0fSx7ImlkIjo1MTY1NzUsIndla#dodCI6MTA4fSx7ImlkIjo2ODcxMjk1NTEsIndla#dodCI6MTAzfV1dLFsiMjAyMy0wNy0wMSIsNzgyMiwyMTQ2Myw3ODUyLDEwNTQs#3sia#QiOjI0MjQxLCJ3Z#lnaHQiOjIxMH0seyJpZCI6NjU2NTQsIndla#dodCI6MTQ4fSx7ImlkIjoxODEyMiwid2VpZ2h0Ijo5NX1dXSxbIjIwMjMtMDgtMDEiLDEwMTc3LDE4ODc4LDY2NTksMzAzLFt7ImlkIjoxODEyMiwid2VpZ2h0IjoyMzZ9LHsia#QiOjY4NzEyOTU1MSwid2VpZ2h0IjoxOTB9LHsia#QiOjY1NjU0LCJ3Z#lnaHQiOjUwfV1dLFsiMjAyMy0wOS0wMSIsMTM5MTIsNDY2MDEsNTI0MywyNjEyLFt7ImlkIjo2ODcxMjk1NTEsIndla#dodCI6MTI4fSx7ImlkIjoxODEyMiwid2VpZ2h0IjoxMDd9LHsia#QiOjUxNjU3NSwid2VpZ2h0Ijo1MX1dXSxbIjIwMjMtMTAtMDEiLDExNDk5LDcxNDI1LDQ3NzAsMTQwNCxbeyJpZCI6MTgxMjIsIndla#dodCI6MTI4fSx7ImlkIjo2ODcxMjk1NTEsIndla#dodCI6NTl9LHsia#QiOjIwNTQ4NDIxNzAsIndla#dodCI6NDZ9XV0s#yIyMDIzLTExLTAxIiw4NjUyLDI2NDY1LDY3ODcsMTA0NCxbeyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjIwMX0seyJpZCI6MTgxMjIsIndla#dodCI6OTZ9LHsia#QiOjIwODU5ODAxNDAsIndla#dodCI6Nzd9XV0s#yIyMDIzLTEyLTAxIiw5MTM2LDE3NDU1LDU1NzQsMTMyMyxbeyJpZCI6MTgxMjIsIndla#dodCI6MjA2fSx7ImlkIjo1MTY1NzUsIndla#dodCI6OTJ9LHsia#QiOjMzMjE0LCJ3Z#lnaHQiOjM3fV1dLFsiMjAyNC0wMS0wMSIsMTA1OTYsMjY1ODQsNjY4MiwxNTk3LFt7ImlkIjoxMDM2NzEwNTEyLCJ3Z#lnaHQiOjE2Mn0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjkzfSx7ImlkIjoyMDg1OTgwMTQwLCJ3Z#lnaHQiOjQ4fV1dLFsiMjAyNC0wMi0wMSIsMTAzOTEsMjQxNzYsNjUyOSw3MDEs#3sia#QiOjE4MTIyLCJ3Z#lnaHQiOjIwNX0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjkzfSx7ImlkIjoxOTUyNjk5OTE5LCJ3Z#lnaHQiOjQ1fV1dLFsiMjAyNC0wMy0wMSIsMTEyNzYsMzA3OTksNDg0MCwzMDAs#3sia#QiOjUxNjU3NSwid2VpZ2h0IjoxMjZ9LHsia#QiOjE4MTIyLCJ3Z#lnaHQiOjU5fSx7ImlkIjo1MTEyMjQsIndla#dodCI6NDZ9XV0s#yIyMDI0LTA0LTAxIiwxMzU0Nyw1MjA0NSw2Mjc1LDY5NTcs#3sia#QiOjE4MTIyLCJ3Z#lnaHQiOjEzNX0seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjExOH0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjkyfV1dLFsiMjAyNC0wNS0wMSIsMzY1NzYsMTgxMTgwLDY5MjQsMTYzNDYs#3sia#QiOjM3NjUwMDc3MSwid2VpZ2h0IjoxODV9LHsia#QiOjUwOTY2Mywid2VpZ2h0IjoxODB9LHsia#QiOjc2NjU0ODY2OCwid2VpZ2h0Ijo2M31dXSxbIjIwMjQtMDYtMDEiLDg3NjcsMTcwNDksNTczNiwtODk4LFt7ImlkIjo1MTY1NzUsIndla#dodCI6ODZ9LHsia#QiOjI0MjQxLCJ3Z#lnaHQiOjg0fSx7ImlkIjozNzY1MDA3NzEsIndla#dodCI6NTF9XV0s#yIyMDI0LTA3LTAxIiw5MDA1LDI0OTI5LDU5MDgsLTU2NCxbeyJpZCI6MTgxMjIsIndla#dodCI6MjMxfSx7ImlkIjo1MTY1NzUsIndla#dodCI6Njl9LHsia#QiOjI0MjQxLCJ3Z#lnaHQiOjUwfV1dLFsiMjAyNC0wOC0wMSIsOTU3Niw0NTI0OCw0MjgxLDE2NDgs#3sia#QiOjE4MTIyLCJ3Z#lnaHQiOjE1N30seyJpZCI6MzMyMTQsIndla#dodCI6Mzd9LHsia#QiOjUxMTIyNCwid2VpZ2h0IjozNn1dXSxbIjIwMjQtMDktMDEiLDE2Njg3LDIxNzE1MCw3ODYyLDIxNzkyLFt7ImlkIjo1MDk2NjMsIndla#dodCI6MzIzfSx7ImlkIjoxODEyMiwid2VpZ2h0IjoyNjl9LHsia#QiOjMzMjE0LCJ3Z#lnaHQiOjQ3fV1dLFsiMjAyNC0xMC0wMSIsMTA3NjgsMjc2MTMsNzM3OSw0MTgwLFt7ImlkIjo1MDY0NTYsIndla#dodCI6MjcyfSx7ImlkIjozMzIxNCwid2VpZ2h0IjoxMTd9LHsia#QiOjk4Mzg0MTI0Mywid2VpZ2h0Ijo1MX1dXSxbIjIwMjQtMTEtMDEiLDEwMjA4LDQ2NDM3LDYwODQsNjkwLFt7ImlkIjo1MTY1NzUsIndla#dodCI6MTY1fSx7ImlkIjoxODEyMiwid2VpZ2h0IjoxMzB9LHsia#QiOjUwOTY1OCwid2VpZ2h0Ijo4NH1dXSxbIjIwMjQtMTItMDEiLDEwMTcxLDI2NTkyLDQ0NjUsLTE4MixbeyJpZCI6MTcwMjUyMDMwNCwid2VpZ2h0Ijo4OH0seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjYyfSx7ImlkIjo2ODcxMjk1NTEsIndla#dodCI6Mjd9XV0s#yIyMDI1LTAxLTAxIiwxMjU1NSwzODc3NSw0NDIxLDgyNyxbeyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjEyNn0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjkwfSx7ImlkIjoxNjY4ODgxMTg1LCJ3Z#lnaHQiOjU4fV1dLFsiMjAyNS0wMi0wMSIsMTAzMzMsMzI4OTcsNTc0Nyw5ODAs#3sia#QiOjQxNDgyMjgyMSwid2VpZ2h0IjoxMDV9LHsia#QiOjE4MTIyLCJ3Z#lnaHQiOjcyfSx7ImlkIjoyNzQ3MSwid2VpZ2h0Ijo2Mn1dXSxbIjIwMjUtMDMtMDEiLDEzNTU0LDUwMzY3LDUxMzQsMjEwNSxbeyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjEyOH0seyJpZCI6NTA5NjU4LCJ3Z#lnaHQiOjEwNX0seyJpZCI6NDE0ODIyODIxLCJ3Z#lnaHQiOjYzfV1dLFsiMjAyNS0wNC0wMSIsMzI2OTUsMTI0ODI1LDUyNzYsODU2MSxbeyJpZCI6MTk0OTA2NTA2Miwid2VpZ2h0IjoxNjd9LHsia#QiOjUwOTY1OCwid2VpZ2h0Ijo3OH0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjYxfV1dLFsiMjAyNS0wNS0wMSIsMTA4NTIsMjc0NDQsNDUzMSwtMTg2LFt7ImlkIjoxODEyMiwid2VpZ2h0IjoxMzJ9LHsia#QiOjUwOTY1OCwid2VpZ2h0Ijo5N30seyJpZCI6MTMxNzk1MjA4MSwid2VpZ2h0Ijo0Nn1dXSxbIjIwMjUtMDYtMDEiLDkxNjcsMTkwMjAsNjQ0MCwtMjkzLFt7ImlkIjo1MDk2NTgsIndla#dodCI6MTEyfSx7ImlkIjoxODI2MzAwMDUxLCJ3Z#lnaHQiOjg4fSx7ImlkIjoxMDgxOTk4MjcyLCJ3Z#lnaHQiOjc2fV1dLFsiMjAyNS0wNy0wMSIsMTAxMDMsNTU3NDUsNjM3NywyMjA0LFt7ImlkIjo1MDk2NTgsIndla#dodCI6ODl9LHsia#QiOjQxNzUyOCwid2VpZ2h0Ijo4NX0seyJpZCI6NTE2NTc1LCJ3Z#lnaHQiOjc0fV1dXSwiZ3Jvd3RoIjpb#yIyMDE2LTExLTIwIiwzMTk5NiwyNTMyMjJdLFsiMjAxNi0xMS0yNyIsMTU0OTA2LDI1NTAzMF0s#yIyMDE2LTEyLTA0IiwxMTY0MTgsMjU2NDI3XSxbIjIwMTYtMTItMDciLDUzNTc5LDI1NzAyMl0s#yIyMDE2LTEyLTE4Iiw1MzE1NSwyNTgxMzZdLFsiMjAxNi0xMi0yNSIsNTA4MjgsMjU5MTkxXSxbIjIwMTctMDEtMDgiLDUzMzY5LDI2MTI1NF0s#yIyMDE3LTAxLTE1IiwxNTU3MTYsMjYzODE2XSxbIjIwMTctMDEtMjIiLDI2NTQxOCwyNjY3OTBdLFsiMjAxNy0wMS0yOSIsMTI2NDk4LDI2ODU5NV0s#yIyMDE3LTAyLTA1IiwxMzkxOTQsMjcwNjk1XSxbIjIwMTctMDItMTIiLDE1MjYzNCwyNzM2MDNdLFsiMjAxNy0wMi0xOSIsMTA4NTU0LDI3NTM3MV0s#yIyMDE3LTAyLTI1IiwyMzk1MzAsMjc3MTc0XSxbIjIwMTctMDMtMDQiLDE3NzcxMywyODAxNTVdLFsiMjAxNy0wMy0xMiIsNzYyODMsMjgwOTQyXSxbIjIwMTctMDMtMTgiLDk5Nzg3LDI4MjIzNF0s#yIyMDE3LTAzLTI2IiwzOTI1NCwyODI5NzldLFsiMjAxNy0wNC0wMiIsMTA5OTA5LDI4NDI3M10s#yIyMDE3LTA0LTA3Iiw0MTM1NiwyODQ4NjhdLFsiMjAxNy0wNC0xNiIsMTM2OTEyLDI4NjkxOF0s#yIyMDE3LTA0LTIzIiwzNzAzMCwyODc5MTddLFsiMjAxNy0wNC0zMCIsMTE0OTc1LDI4OTU4MV0s#yIyMDE3LTA1LTA3Iiw5OTQ0OSwyOTEyMjNdLFsiMjAxNy0wNS0xNCIsMTYxMTIyLDI5MzgzM10s#yIyMDE3LTA1LTIxIiwxMjQzNTAsMjk1NTc5XSxbIjIwMTctMDUtMjgiLDc2MzIzLDI5NzAyOV0s#yIyMDE3LTA2LTAzIiwxNzQyMTEsMzAwMDkxXSxbIjIwMTctMDYtMDkiLDk4NzgzLDMwMjA5NF0s#yIyMDE3LTA2LTI1Iiw5NzM5LDMwMzg4MV0s#yIyMDE3LTA3LTAxIiwyOTg3NjEsMzA4MTM4XSxbIjIwMTctMDctMDkiLDk3OTg3LDMxMTE1MV0s#yIyMDE3LTA3LTE2Iiw1NDM4MCwzMTM2MTVdLFsiMjAxNy0wNy0yMiIsMTI0NjU5LDMxNjc4Ml0s#yIyMDE3LTA3LTI5IiwxNjk1MSwzMTgyNzNdLFsiMjAxNy0wOC0wNiIsODQxNjYsMzIxMjgzXSxbIjIwMTctMDgtMTIiLDkyNDM2LDMyNDA5OF0s#yIyMDE3LTA4LTE4IiwxNDA4OCwzMjUwMTNdLFsiMjAxNy0wOC0yNyIsODIyNDgsMzI3NDY1XSxbIjIwMTctMDktMDIiLDU5MTUyLDMyOTMyNl0s#yIyMDE3LTA5LTEwIiw2ODg2MTIsMzUwODQxXSxbIjIwMTctMDktMTEiLDI1MTMsMzUwODgwXSxbIjIwMTctMDktMjQiLDE1NTA1OSwzNTUxNTFdLFsiMjAxNy0wOS0yOCIsODcyOTAsMzU2NDA5XSxbIjIwMTctMTAtMDgiLDE4NjcxNSwzNTkxMDhdLFsiMjAxNy0xMC0xNSIsMTcyNzI2LDM2MDk3MV0s#yIyMDE3LTEwLTIyIiwxNjIzNDYsMzYyOTExXSxbIjIwMTctMTAtMjciLDg3NTI1LDM2NDI0NF0s#yIyMDE3LTExLTA1IiwxMTM2MjAsMzY2Nzk3XSxbIjIwMTctMTEtMTIiLDEzMTcwOSwzNjg0ODRdLFsiMjAxNy0xMS0xNyIsMTM5NzIwLDM3MjkwMl0s#yIyMDE3LTExLTIzIiwxNDUwNzIsMzc0NjI1XSxbIjIwMTctMTItMDMiLDE2OTgzNCwzNzY5MDNdLFsiMjAxNy0xMi0xMCIsMjAzNzEyLDM3OTc5MV0s#yIyMDE3LTEyLTE3IiwxNDQxMzQsMzgxNjM4XSxbIjIwMTctMTItMjQiLDI2MDQ4MywzODU3NzRdLFsiMjAxOC0wMS0wNyIsOTE1ODEsMzg5MTM4XSxbIjIwMTgtMDEtMTIiLDc1NDk1LDM5MDUyNF0s#yIyMDE4LTAxLTIxIiwxOTAwNjMsMzk0MTA3XSxbIjIwMTgtMDEtMjgiLDMyMDQxNCwzOTgwNTNdLFsiMjAxOC0wMi0wNCIsMTY4OTQ4LDQwMDE2OF0s#yIyMDE4LTAyLTExIiwyNDY3ODAsNDAzNzExXSxbIjIwMTgtMDItMTgiLDI3MDUzNSw0MTI4MjRdLFsiMjAxOC0wMi0yMyIsMTAxODQ3LDQxNTAyMV0s#yIyMDE4LTAzLTA0IiwyMjAxODcsNDE5MTk2XSxbIjIwMTgtMDMtMTEiLDE5MDk2OCw0MjM2NTFdLFsiMjAxOC0wMy0xOCIsMzE5ODg2LDQyNzY5OF0s#yIyMDE4LTAzLTI1Iiw0MTEzODgsNDMxNjgyXSxbIjIwMTgtMDQtMDEiLDE3NDk0NCw0MzQxMjZdLFsiMjAxOC0wNC0wNyIsMjM5ODYwLDQzNzkxN10s#yIyMDE4LTA0LTE1IiwxMjg1MDcsNDM5Nzk4XSxbIjIwMTgtMDQtMjIiLDE5NjYwMCw0NDE2MzddLFsiMjAxOC0wNC0yOSIsMTYzODY3LDQ0MzQ4NF0s#yIyMDE4LTA0LTMwIiw1NTYxMyw0NDM4MDhdLFsiMjAxOC0wNS0xMyIsMzM0MTY3LDQ0ODcyNF0s#yIyMDE4LTA1LTIwIiwzNDExMDgsNDUxNTMyXSxbIjIwMTgtMDUtMjUiLDU2ODM2Nyw0NTQ5NjRdLFsiMjAxOC0wNi0wMyIsMzkyNTMyLDQ2MTQ0M10s#yIyMDE4LTA2LTA5Iiw1NTk0NDgsNDY3Nzg3XSxbIjIwMTgtMDYtMTciLDI5NTk5Niw0NzA4MTZdLFsiMjAxOC0wNi0yNCIsMTM3Njc4LDQ3MjIxM10s#yIyMDE4LTA2LTMwIiwyMjM0NDUsNDc0OTM2XSxbIjIwMTgtMDctMDgiLDcxMjM2LDQ3NjY2NF0s#yIyMDE4LTA3LTE1IiwxNTg5OTUsNDc4MzA4XSxbIjIwMTgtMDctMjIiLDE2OTIyOSw0ODAwMDNdLFsiMjAxOC0wNy0yOSIsNjg5MDIsNDgxMTkyXSxbIjIwMTgtMDgtMDQiLDIxNDgxNCw0ODM0NjJdLFsiMjAxOC0wOC0xMSIsMTU4MjUxLDQ4NTUxMV0s#yIyMDE4LTA4LTE5Iiw2MjgxMTUsNDkwNTQ4XSxbIjIwMTgtMDgtMjYiLDE1NTY5Miw0OTI0ODNdLFsiMjAxOC0wOC0zMCIsNzE5ODIsNDkzMzk0XSxbIjIwMTgtMDktMDkiLDIxNDExMyw0OTUxNjVdLFsiMjAxOC0wOS0xNiIsMjg1NjEyLDQ5NjY3NV0s#yIyMDE4LTA5LTIzIiwxNjkzNzcsNDk3NTY0XSxbIjIwMTgtMDktMzAiLDIyNDg3NCw0OTg1MzJdLFsiMjAxOC0xMC0wNyIsOTkzODksNDk5MTI5XSxbIjIwMTgtMTAtMTQiLDE3NTA0OSw1MDAyNjVdLFsiMjAxOC0xMC0yMSIsMjM5MDM0LDUwMjY0M10s#yIyMDE4LTEwLTI3IiwxNDczMTQsNTAzNjI2XSxbIjIwMTgtMTEtMDMiLDEzMjgwNSw1MDUzOTRdLFsiMjAxOC0xMS0xMSIsMTA3MjY4OSw1MzA4MDhdLFsiMjAxOC0xMS0xNiIsMjIzMjk3LDUzOTM5N10s#yIyMDE4LTExLTI1IiwxMTY5NzEsNTQzMzk3XSxbIjIwMTgtMTItMDIiLDEyMTc1Myw1NDg2MjFdLFsiMjAxOC0xMi0wOSIsMTUyNTc3LDU1MDIxOF0s#yIyMDE4LTEyLTE2IiwxMjEzMTgsNTUyNjY2XSxbIjIwMTgtMTItMjIiLDEwNTE0Miw1NTM1NDZdLFsiMjAxOS0wMS0xMyIsMTI1ODU4LDU1NjAzMF0s#yIyMDE5LTAxLTIwIiwxMjIxNTUsNTU4ODA0XSxbIjIwMTktMDEtMjciLDEwMzE5Miw1NjAyMTBdLFsiMjAxOS0wMi0wMyIsMTMxNzY3LDU2MTk4MV0s#yIyMDE5LTAyLTEwIiw5MDM4Myw1NjM0MjldLFsiMjAxOS0wMi0xNyIsMjg1MDcxLDU2NzIyNl0s#yIyMDE5LTAyLTI0IiwyNzgxNTksNTc0MDk3XSxbIjIwMTktMDMtMDMiLDE1NDg2MSw1NzYzNTddLFsiMjAxOS0wMy0wOCIsMTAzNzMzLDU3NzMxNl0s#yIyMDE5LTAzLTE3IiwyMDcxOTQsNTc5NTUwXSxbIjIwMTktMDMtMjQiLDE2Nzk5Miw1ODEwMzRdLFsiMjAxOS0wMy0zMSIsMTcyMzQxLDU4MjkzMF0s#yIyMDE5LTA0LTA2IiwxNzQ2NTUsNTg0NDI5XSxbIjIwMTktMDQtMTQiLDE2NjE5OSw1ODYxNTNdLFsiMjAxOS0wNC0xOCIsNDc3OTQsNTg2ODM4XSxbIjIwMTktMDQtMjQiLDMzNjQ3LDU4NzUzMV0s#yIyMDE5LTA1LTA1IiwyNTAyNDksNTkwMzE5XSxbIjIwMTktMDUtMTIiLDIwNjk3NDMsNjA4NjAwXSxbIjIwMTktMDUtMTkiLDc5NTIxOCw2MTUxNzhdLFsiMjAxOS0wNS0yNSIsNTUyNDIzLDYxOTQ3N10s#yIyMDE5LTA2LTAyIiwzMDQ1MjksNjIyNjQ3XSxbIjIwMTktMDYtMDkiLDYwMjc0Myw2Mjc1NzBdLFsiMjAxOS0wNi0xNiIsMTQ1NTMwLDYyOTU4Ml0s#yIyMDE5LTA2LTIzIiw1OTgzMyw2MzA2NDddLFsiMjAxOS0wNi0yOSIsMzkxNjg0LDYzMzYyM10s#yIyMDE5LTA3LTA3Iiw2MjEyNyw2MzUyNTldLFsiMjAxOS0wNy0xMyIsOTIzNzQsNjM2MTA4XSxbIjIwMTktMDctMjEiLDU1NzUyLDYzNzA1MF0s#yIyMDE5LTA3LTI0IiwzNDEzNyw2Mzc0NDZdLFsiMjAxOS0wOC0wMyIsNTU5NTQsNjM4MjE0XSxbIjIwMTktMDgtMTEiLDY0MzEwLDYzOTA1N10s#yIyMDE5LTA4LTE0Iiw2MjcxNyw2Mzk3NjRdLFsiMjAxOS0wOC0yMiIsMzYxMTAsNjQxMzcwXSxbIjIwMTktMDktMDEiLDE5NjAyMzYsNjU5MDQ4XSxbIjIwMTktMDktMDgiLDQwMzEyMSw2NjIxNDRdLFsiMjAxOS0wOS0xNSIsNjQxNjMsNjYyODk3XSxbIjIwMTktMDktMjIiLDE4OTMyNzEsNzIzNjA1XSxbIjIwMTktMDktMjkiLDgzOTk0LDcyOTQ5MF0s#yIyMDE5LTEwLTA2IiwxODg4ODIsNzMyMTEzXSxbIjIwMTktMTAtMTMiLDE1Njg4Myw3MzM2MDJdLFsiMjAxOS0xMC0yMCIsMTY0MTI5LDczNDY4Ml0s#yIyMDE5LTEwLTI3IiwyMTU5NTUsNzM2NDg5XSxbIjIwMTktMTEtMDMiLDcxNTMyLDczNzQ1NV0s#yIyMDE5LTExLTA5IiwxNTc5NTMsNzM4NTU3XSxbIjIwMTktMTEtMTciLDE5Mjc5MCw3NDA1NTZdLFsiMjAxOS0xMS0yNCIsMjc1MzcwLDc0Mjk3Nl0s#yIyMDE5LTEyLTAxIiwzODAxNzAsNzQ1Njk1XSxbIjIwMTktMTItMDgiLDMxODg0Nyw3NDgyODRdLFsiMjAxOS0xMi0xNSIsMTA0NTE2MCw3NTQzNTVdLFsiMjAxOS0xMi0yMiIsMTQyNzM1LDc1NTgwMl0s#yIyMDE5LTEyLTIzIiwxMDg0Miw3NTU4ODVdLFsiMjAyMC0wMS0wNSIsNzM3NjgsNzU3MjM3XSxbIjIwMjAtMDEtMTIiLDMzNzc0Myw3NTk5OTldLFsiMjAyMC0wMS0xOSIsMjY1NjQ3LDc2MTkxMF0s#yIyMDIwLTAxLTI0IiwyMDgxOTcsNzYzMTI3XSxbIjIwMjAtMDItMDIiLDEzNTExNyw3NjQzNTVdLFsiMjAyMC0wMi0wOSIsMTQzNDg4LDc2NTc1NV0s#yIyMDIwLTAyLTE2IiwxMTQyNTEsNzY2ODEzXSxbIjIwMjAtMDItMjMiLDEwNDIwMiw3Njc2NzhdLFsiMjAyMC0wMy0wMSIsMjMzNDM4LDc2OTgyM10s#yIyMDIwLTAzLTA4Iiw3ODg1Niw3NzE2MzJdLFsiMjAyMC0wMy0xMiIsOTMxNzMsNzcyNzUyXSxbIjIwMjAtMDMtMjIiLDMzNjE4NSw3NzY0MjldLFsiMjAyMC0wMy0yOSIsNDA1OTUyLDc4MDcxOV0s#yIyMDIwLTA0LTA1IiwzNTQ1NTEsNzg1NTY0XSxbIjIwMjAtMDQtMTIiLDUyNDI3MCw3OTc0NjddLFsiMjAyMC0wNC0xOSIsMzA4OTc0LDgwNDUxMl0s#yIyMDIwLTA0LTI2IiwzMzQ4MTYsODEwMjk0XSxbIjIwMjAtMDUtMDMiLDMzNDExNyw4MTU2MzFdLFsiMjAyMC0wNS0xMCIsNDMyNjU5LDgyMTI2N10s#yIyMDIwLTA1LTI0IiwyNjQwMjIsODI1MTAyXSxbIjIwMjAtMDUtMzEiLDMyNTgzNiw4MzI3OTNdLFsiMjAyMC0wNi0wNiIsMTQxMzQ0LDgzNTE0Ml0s#yIyMDIwLTA2LTE0IiwzMTMwODYsODM5NDIyXSxbIjIwMjAtMDYtMjEiLDE1MDMwMSw4NDE2NDFdLFsiMjAyMC0wNi0yOCIsNTYzNTE3LDg0NzcxNF0s#yIyMDIwLTA3LTA1Iiw0OTg5MTksODUzNzMyXSxbIjIwMjAtMDctMTIiLDMyOTg4Niw4NTczODFdLFsiMjAyMC0wNy0xOSIsNzYzNzQ4LDg2NDM4OF0s#yIyMDIwLTA3LTI2Iiw1MTE1MzYsODcyNjE1XSxbIjIwMjAtMDgtMDIiLDI5ODc1Nyw4Nzc4NDhdLFsiMjAyMC0wOC0wMyIsNDA5NzEsODc4MTgyXSxbIjIwMjAtMDgtMTUiLDIzNzg0OCw4ODA3MzBdLFsiMjAyMC0wOC0yMSIsNDcwMjcsODgxNDM3XSxbIjIwMjAtMDgtMzAiLDI3MDQ5MDksOTEyODg4XSxbIjIwMjAtMDktMDYiLDMyMDg5NSw5MTYxODRdLFsiMjAyMC0wOS0xMiIsMTI5OTM4LDkxNjk3NV0s#yIyMDIwLTA5LTIwIiwyMjU3ODMsOTE4MDEzXSxbIjIwMjAtMDktMjciLDE5ODc1NSw5MjAzMjVdLFsiMjAyMC0xMC0wNCIsMjgxMDU5LDkyMjY4N10s#yIyMDIwLTEwLTExIiwxODExNTksOTI0OTc4XSxbIjIwMjAtMTAtMTgiLDI3MDI3MzIsOTk3Mzk1XSxbIjIwMjAtMTAtMjQiLDM2NjgyMywxMDA3NTA5XSxbIjIwMjAtMTEtMDEiLDE0Mjc2NSwxMDEwMzk4XSxbIjIwMjAtMTEtMDgiLDEyMjcwNCwxMDExNjMwXSxbIjIwMjAtMTEtMTUiLDEzNTYyNCwxMDEyNDA2XSxbIjIwMjAtMTEtMjIiLDE2MTU1NCwxMDEzNTUyXSxbIjIwMjAtMTEtMjkiLDUwNzY1MiwxMDE3MDc3XSxbIjIwMjAtMTItMDYiLDc5ODQ5LDEwMTc3OTZdLFsiMjAyMC0xMi0xMyIsNTIyNjEzLDEwMTkzODBdLFsiMjAyMC0xMi0yMCIsNDgwODQxLDEwMjA4MTNdLFsiMjAyMC0xMi0yNyIsMjA4NjI0LDEwMjE0NTldLFsiMjAyMS0wMS0wMyIsNzIwMDEsMTAyMTc3OV0s#yIyMDIxLTAxLTEwIiwxMzg0MDksMTAyMjI2Ml0s#yIyMDIxLTAxLTE3Iiw3NzMxNywxMDIyMzMxXSxbIjIwMjEtMDEtMjQiLDg5MzcyLDEwMjI0NjFdLFsiMjAyMS0wMS0zMSIsNzQwMzgsMTAyMjc0Nl0s#yIyMDIxLTAyLTA0Iiw1NjQyNSwxMDIyNzIzXSxbIjIwMjEtMDItMTQiLDMwMjIzNCwxMDI1Mzc4XSxbIjIwMjEtMDItMjEiLDI0ODYwMCwxMDI3MjU2XSxbIjIwMjEtMDItMjgiLDc5MDUwLDEwMjgyNzBdLFsiMjAyMS0wMy0wNSIsMTAxNjg3LDEwMjkzNjZdLFsiMjAyMS0wMy0xNCIsMTE1NzYxLDEwMzE3MjldLFsiMjAyMS0wMy0xOSIsMjMzNzM0LDEwMzM3MjhdLFsiMjAyMS0wMy0yOCIsMzQyNTEwLDEwMzU5ODJdLFsiMjAyMS0wNC0wNCIsMzQ1MDc0LDEwMzgzMTJdLFsiMjAyMS0wNC0xMSIsMjI0MjE2LDEwMzkzNTVdLFsiMjAyMS0wNC0xOCIsMjI0MjgwLDEwMzg5NzRdLFsiMjAyMS0wNC0yNSIsMzgzODA0LDEwNDQ4NjNdLFsiMjAyMS0wNS0wMiIsMzM1NzEwLDEwNTAxNDldLFsiMjAyMS0wNS0wOSIsMzY5MjI3LDEwNTQ5NDldLFsiMjAyMS0wNS0xNiIsMTM3NTgwLDEwNTY2MjNdLFsiMjAyMS0wNS0yMiIsMTkwNTYwLDEwNTc3NzddLFsiMjAyMS0wNS0zMCIsMTkyNTk2LDEwNTg3NjFdLFsiMjAyMS0wNi0wNiIsNDI1NTQ5NSwxMDk3NTg1XSxbIjIwMjEtMDYtMTMiLDMzNDMzNSwxMTAwMDQ3XSxbIjIwMjEtMDYtMTkiLDM3NzMxNywxMTAyMDkzXSxbIjIwMjEtMDYtMjciLDMzMTE4OSwxMTAzMzA4XSxbIjIwMjEtMDctMDQiLDM0MTM4MywxMTA0NTcyXSxbIjIwMjEtMDctMTEiLDIyNzc0MywxMTA1MzQ5XSxbIjIwMjEtMDctMTgiLDM2MTU1NiwxMTA3MDEzXSxbIjIwMjEtMDctMjUiLDY4NjU2OCwxMTE0ODE0XSxbIjIwMjEtMDgtMDEiLDQ5MTYwMCwxMTE4NDI3XSxbIjIwMjEtMDgtMDciLDEzMzEwMiwxMTE5NjcwXSxbIjIwMjEtMDgtMTUiLDE4NzE2OSwxMTIwOTg1XSxbIjIwMjEtMDgtMjIiLDEwOTQzNywxMTIxODM3XSxbIjIwMjEtMDgtMjkiLDU5NjA3NSwxMTI1MTg5XSxbIjIwMjEtMDktMDUiLDIzNjIyNSwxMTI2NzczXSxbIjIwMjEtMDktMTIiLDE3ODM1NSwxMTI3NjEyXSxbIjIwMjEtMDktMTkiLDE4NzI4OCwxMTI4NDc3XSxbIjIwMjEtMDktMjUiLDE0MDA3MSwxMTI5NjQ5XSxbIjIwMjEtMTAtMDMiLDE0OTAxMTksMTE0MzI2MV0s#yIyMDIxLTEwLTA5IiwzMTg2OTIsMTE0NTk4NV0s#yIyMDIxLTEwLTE3IiwxODA1NDcsMTE0OTI1MF0s#yIyMDIxLTEwLTI0IiwxNzYyMDEsMTE1MTI3M10s#yIyMDIxLTEwLTMxIiwyMDI0OTI3LDEyOTI3MTZdLFsiMjAyMS0xMS0wMSIsNDc2MDgsMTI5OTI1NF0s#yIyMDIxLTExLTE0Iiw1ODcxODAsMTMxNjk3OF0s#yIyMDIxLTExLTIwIiwxMzI0NDUsMTMxNzYwMV0s#yIyMDIxLTExLTI4IiwxMDM5MTYsMTMxNzUzNF0s#yIyMDIxLTEyLTA1IiwzNTc3OTgsMTMxNzk1Ml0s#yIyMDIxLTEyLTEyIiwyNjMzMjIsMTMxODQ3NV0s#yIyMDIxLTEyLTE5IiwxMzAxNTQsMTMxOTY3OV0s#yIyMDIxLTEyLTIyIiwxMDA0MjgsMTMxOTgwMl0s#yIyMDIyLTAxLTAyIiw2MDU3NywxMzE5ODMzXSxbIjIwMjItMDEtMDkiLDIyNzQ4OSwxMzIxNzI5XSxbIjIwMjItMDEtMTYiLDIxNDgxMiwxMzIyNjc3XSxbIjIwMjItMDEtMjMiLDMwMjg5MywxMzIzNDU1XSxbIjIwMjItMDEtMzAiLDI4ODk2NywxMzI0MTUyXSxbIjIwMjItMDItMDUiLDI1MTI5OSwxMzI1NTY3XSxbIjIwMjItMDItMTMiLDExNzk2ODksMTMzNTE0NF0s#yIyMDIyLTAyLTIwIiw3MDcwNTEsMTM0MDUzN10s#yIyMDIyLTAyLTI3IiwzODc2NDksMTM0MjY3OF0s#yIyMDIyLTAzLTA0IiwxMjQyMDQsMTM0MzQ3M10s#yIyMDIyLTAzLTEzIiwxODQ4NjcsMTM0NDUxMl0s#yIyMDIyLTAzLTE5IiwyMDE5MTIsMTM0NTU3OF0s#yIyMDIyLTAzLTI3Iiw1NTY0OCwxMzQ1ODIxXSxbIjIwMjItMDQtMDMiLDE4OTEyOCwxMzU1NDYyXSxbIjIwMjItMDQtMTAiLDQyNDk5MzUsMTQwNzg1Ml0s#yIyMDIyLTA0LTE3Iiw1ODg3MzcsMTQxMTE2NF0s#yIyMDIyLTA0LTI0Iiw1NzMyNTEsMTQxNDA3N10s#yIyMDIyLTA1LTAxIiw2ODE2MDMsMTQxNjUzNl0s#yIyMDIyLTA1LTA4Iiw2NjM2NzQsMTQxODM3NV0s#yIyMDIyLTA1LTE1IiwxMTUwMTM5LDE0MjIwMzRdLFsiMjAyMi0wNS0yMiIsMjcxODU2LDE0MjMwODRdLFsiMjAyMi0wNS0yNyIsMzMxOTA3LDE0MjM3MDNdLFsiMjAyMi0wNi0wNCIsOTI5NzYwLDE0MzAyMDddLFsiMjAyMi0wNi0xMSIsMzQzMTM0LDE0MzM0MjRdLFsiMjAyMi0wNi0xNiIsMjU3Njk5LDE0MzQ3MDhdLFsiMjAyMi0wNi0yNSIsMjYxNjAwLDE0MzYwMDBdLFsiMjAyMi0wNy0wMSIsMjk4MzIyLDE0MzcwNTVdLFsiMjAyMi0wNy0wOCIsMjA2NDQ2LDE0Mzk1MzRdLFsiMjAyMi0wNy0xNyIsMjM5Njg3LDE0Mzk3NDhdLFsiMjAyMi0wNy0yNCIsMzk0NDMzLDE0NDEwMTldLFsiMjAyMi0wNy0zMSIsMjA4MDkxLDE0NDEyOTFdLFsiMjAyMi0wOC0wNSIsMTU0MzYxLDE0NDE4NTNdLFsiMjAyMi0wOC0xNCIsMzA0NDY2LDE0NDIxOTJdLFsiMjAyMi0wOC0yMSIsMjk1NjU4LDE0NDI4MTNdLFsiMjAyMi0wOC0yOCIsMjIxNzI3LDE0NDMyMzVdLFsiMjAyMi0wOS0wMSIsMTMxMDcyLDE0NDM2MjddLFsiMjAyMi0wOS0xMSIsMjIzMjk5NSwxNDc5OTAyXSxbIjIwMjItMDktMTgiLDExNDY1MSwxNDgzNjEzXSxbIjIwMjItMDktMjUiLDIzNDA1OCwxNDg0MDUwXSxbIjIwMjItMTAtMDIiLDQwMDgyOSwxNDg0NTA1XSxbIjIwMjItMTAtMDkiLDIzODA4MSwxNDg1MDk4XSxbIjIwMjItMTAtMTYiLDI0MzY5MCwxNDg1NzI0XSxbIjIwMjItMTAtMjMiLDE3MTE2MCwxNDg2MDczXSxbIjIwMjItMTAtMzAiLDM5MDkyNiwxNDg3NTY0XSxbIjIwMjItMTEtMDYiLDQyMjYxOCwxNDg5MzcwXSxbIjIwMjItMTEtMTMiLDU0MTA4OSwxNDkxMTM5XSxbIjIwMjItMTEtMjAiLDEzNzMwNiwxNDkxNTY2XSxbIjIwMjItMTEtMjYiLDExODk5NCwxNDkxODExXSxbIjIwMjItMTItMDMiLDcwMTUxMCwxNDk0NjI4XSxbIjIwMjItMTItMTEiLDMyOTE3NCwxNDk0OTQ2XSxbIjIwMjItMTItMTgiLDQ1NjQ0OSwxNDk1MDIwXSxbIjIwMjItMTItMjEiLDI0NjQzMywxNDk0OTkyXSxbIjIwMjItMTItMzEiLDM2MDUsMTQ5NDkzOF0s#yIyMDIzLTAxLTA3IiwyMjAwNzQsMTQ5NTExMF0s#yIyMDIzLTAxLTE1IiwyMjI3NjMsMTQ5NDkwNV0s#yIyMDIzLTAxLTIyIiwyMzMzODksMTQ5NDgxOF0s#yIyMDIzLTAxLTI5IiwyNTIxODcsMTQ5NDk2OF0s#yIyMDIzLTAyLTA1IiwxOTUwNTEsMTQ5NTA3NF0s#yIyMDIzLTAyLTEyIiwyODQ3MzAsMTQ5NTA4OF0s#yIyMDIzLTAyLTE5IiwxMzQyMjQsMTQ5NTA4N10s#yIyMDIzLTAyLTI2IiwxNTI1MjAsMTQ5NTQyOV0s#yIyMDIzLTAzLTA1IiwxOTIyMzIsMTQ5NTU3NV0s#yIyMDIzLTAzLTEyIiwyMjUwNzMsMTQ5NjEwOV0s#yIyMDIzLTAzLTE5IiwyOTA2MDcsMTQ5NzM1MV0s#yIyMDIzLTAzLTI2IiwyNjE2MTEsMTQ5Nzg5Nl0s#yIyMDIzLTA0LTAyIiw1NDc1MjcsMTQ5OTgzNV0s#yIyMDIzLTA0LTA5Iiw0NTQzNzUsMTUwMTA5MF0s#yIyMDIzLTA0LTE2IiwyODg3ODMsMTUwMjAyNV0s#yIyMDIzLTA0LTIzIiwzMDgwMjksMTUwMzMwMl0s#yIyMDIzLTA0LTMwIiwzNzg3MjEsMTUwNDQxMV0s#yIyMDIzLTA1LTA3IiwxNjM5MDAsMTUwNDg1Nl0s#yIyMDIzLTA1LTE0IiwzMzczMDY3LDE1MjEyNzVdLFsiMjAyMy0wNS0yMSIsNjQ3NjI5LDE1MjMzNDldLFsiMjAyMy0wNS0yNyIsNTA5OTQ4LDE1MjQyMzFdLFsiMjAyMy0wNi0wNCIsNTMzNjA5LDE1MjU0ODBdLFsiMjAyMy0wNi0xMSIsMTAyNzM1MSwxNTMwMzMwXSxbIjIwMjMtMDYtMTgiLDg1ODk1LDE1MzA2NzldLFsiMjAyMy0wNi0yNSIsMjYwMTE2LDE1MzE0MjBdLFsiMjAyMy0wNy0wMiIsNDU4MjE2LDE1MzI2NDBdLFsiMjAyMy0wNy0wOSIsMzA4ODg0LDE1MzMzNjNdLFsiMjAyMy0wNy0xNSIsMjAxODk0LDE1MzM1MTFdLFsiMjAyMy0wNy0yMyIsMzI3MjU1LDE1MzQwMzddLFsiMjAyMy0wNy0zMCIsMTIyMzI0LDE1MzM4MzBdLFsiMjAyMy0wOC0wMiIsNTU4NDYsMTUzMzQwNV0s#yIyMDIzLTA4LTEzIiwxNTM5NzEsMTUzMzExMl0s#yIyMDIzLTA4LTIwIiwyODY3NzUsMTUzMjk5M10s#yIyMDIzLTA4LTI3Iiw0NDA4MTMsMTUzMzUwNV0s#yIyMDIzLTA5LTAzIiw1NTIxMDQsMTUzNDUxNF0s#yIyMDIzLTA5LTA0Iiw3MTA1NSwxNTM0NzM2XSxbIjIwMjMtMDktMTYiLDI0MjAwMCwxNTM1NTM3XSxbIjIwMjMtMDktMjQiLDM2MTAyNCwxNTM2NDAwXSxbIjIwMjMtMTAtMDEiLDIzODU1NywxNTM2NDU0XSxbIjIwMjMtMTAtMDgiLDEzMTY3NSwxNTM2MzA1XSxbIjIwMjMtMTAtMTAiLDcwMzI5LDE1MzY0MDZdLFsiMjAyMy0xMC0yMiIsMjM4OTEwLDE1MzY1NDddLFsiMjAyMy0xMC0yOCIsMzM5MzM5LDE1Mzc2MzVdLFsiMjAyMy0xMS0wNSIsMjc1NDc3LDE1Mzg2MDFdLFsiMjAyMy0xMS0xMiIsMTkwNzk0LDE1Mzg1MjRdLFsiMjAyMy0xMS0xOSIsMjQ5MDEzLDE1Mzg1NzRdLFsiMjAyMy0xMS0yNiIsMTk3OTYyLDE1Mzg2NzhdLFsiMjAyMy0xMi0wMyIsNDMxMzc2LDE1MzkxNTVdLFsiMjAyMy0xMi0xMCIsMjM3MTU4LDE1Mzk0MDZdLFsiMjAyMy0xMi0xNSIsMjA0NDcyLDE1NDAwNTJdLFsiMjAyMy0xMi0yMyIsMTI2NDgwLDE1NDAzNDFdLFsiMjAyMy0xMi0zMSIsMTQwMiwxNTQwMjgzXSxbIjIwMjQtMDEtMDciLDY2NzEyLDE1NDAyMDVdLFsiMjAyNC0wMS0xNCIsMjM3MzUwLDE1NDAzOTddLFsiMjAyNC0wMS0yMSIsNDc0Nzg3LDE1NDEyMjFdLFsiMjAyNC0wMS0yOCIsMjk0NjA4LDE1NDE2NTFdLFsiMjAyNC0wMi0wNCIsMjE3MzU1LDE1NDIwNTldLFsiMjAyNC0wMi0xMSIsMzQ0OTgxLDE1NDIzMTJdLFsiMjAyNC0wMi0xOCIsMjU3MzgxLDE1NDI1MzVdLFsiMjAyNC0wMi0yNSIsMzE3MTUxLDE1NDI0OTJdLFsiMjAyNC0wMy0wMiIsMTMxMDMwLDE1NDI1MzhdLFsiMjAyNC0wMy0xMCIsMjc1NTc2LDE1NDE5NzRdLFsiMjAyNC0wMy0xNyIsMTU1MjAxLDE1NDIzOTBdLFsiMjAyNC0wMy0yNCIsMTU3MjQzLDE1NDIyNThdLFsiMjAyNC0wMy0zMCIsMjkxMDQ5LDE1NDI4ODFdLFsiMjAyNC0wNC0wNyIsMzc2NjMwLDE1NDQyOTBdLFsiMjAyNC0wNC0xNCIsMTU5NDU0LDE1NDQ2NjRdLFsiMjAyNC0wNC0yMSIsNTY1NTk3LDE1NDU4MzVdLFsiMjAyNC0wNC0yNyIsMzE1MDk5LDE1NDk4MzhdLFsiMjAyNC0wNS0wNSIsNzQyODUsMTU1MDk3M10s#yIyMDI0LTA1LTEyIiwzNTQzMzUzLDE1NjQ3NTJdLFsiMjAyNC0wNS0xOCIsMjAyMzkxLDE1NjU1NDJdLFsiMjAyNC0wNS0yNiIsMTc2NTc4LDE1NjUzMzldLFsiMjAyNC0wNi0wMiIsMjcwODA3LDE1NjU5NjBdLFsiMjAyNC0wNi0wOCIsMTk5NzM5LDE1NjU3MjBdLFsiMjAyNC0wNi0xNiIsMjIwNzIxLDE1NjUyNTBdLFsiMjAyNC0wNi0yMyIsMTg4OTg3LDE1NjUyMzRdLFsiMjAyNC0wNi0zMCIsMTgyMjA2LDE1NjUyODZdLFsiMjAyNC0wNy0wNyIsMTg1Mzc2LDE1NjUwMzFdLFsiMjAyNC0wNy0xNCIsMTgxMTYzLDE1NjUwNTddLFsiMjAyNC0wNy0yMSIsMzQ0MjE4LDE1NjQ5NDJdLFsiMjAyNC0wNy0yMiIsOTI5MzgsMTU2NDk0Nl0s#yIyMDI0LTA4LTA0IiwxNDAwNzgsMTU2NDY5MF0s#yIyMDI0LTA4LTA4Iiw1MTE3NCwxNTY0NzYwXSxbIjIwMjQtMDgtMTYiLDE1MTYyMywxNTY0ODAwXSxbIjIwMjQtMDgtMjMiLDE4MzQ4OSwxNTY0NzEzXSxbIjIwMjQtMDktMDEiLDM0Njk5MSwxNTY3NzA5XSxbIjIwMjQtMDktMDgiLDExNjU1NzEsMTU4NzE0NF0s#yIyMDI0LTA5LTE1Iiw1NDE5NDcsMTU4ODE3N10s#yIyMDI0LTA5LTIxIiw4MDE3OCwxNTg3OTE2XSxbIjIwMjQtMDktMjkiLDIxODMzMSwxNTg4MTg4XSxbIjIwMjQtMTAtMDYiLDUzNzYzMywxNTg5MzQ1XSxbIjIwMjQtMTAtMTEiLDI4MzM4MywxNTg5NDEwXSxbIjIwMjQtMTAtMTciLDE4Nzc2MywxNTg5Mzc3XSxbIjIwMjQtMTAtMjciLDI4NDAxOSwxNTkyMzE3XSxbIjIwMjQtMTEtMDMiLDE1MDQ1MywxNTkyMjAxXSxbIjIwMjQtMTEtMTAiLDIzNDk4NiwxNTkyMjgwXSxbIjIwMjQtMTEtMTciLDI3Njg1NSwxNTkyNjg0XSxbIjIwMjQtMTEtMjQiLDMxNjYwMCwxNTkyNjM1XSxbIjIwMjQtMTItMDEiLDE5OTI0OSwxNTkyOTg3XSxbIjIwMjQtMTItMDgiLDI0NDMzMCwxNTkyOTQ3XSxbIjIwMjQtMTItMTUiLDE5NjAzOSwxNTkyOTk2XSxbIjIwMjQtMTItMjIiLDI3NjU5NiwxNTkzMDk0XSxbIjIwMjUtMDEtMDUiLDU3MjY0LDE1OTI2MDBdLFsiMjAyNS0wMS0xMiIsMjk1MDAzLDE1OTMzNTNdLFsiMjAyNS0wMS0xOSIsMTkzOTc3LDE1OTMzMjZdLFsiMjAyNS0wMS0yNiIsMjM2NjE4LDE1OTM2ODJdLFsiMjAyNS0wMi0wMiIsMTg5OTc1LDE1OTM1NjddLFsiMjAyNS0wMi0wOCIsMjU3MDQ0LDE1OTM4NjVdLFsiMjAyNS0wMi0xNSIsMjYyMzAzLDE1OTQwNjJdLFsiMjAyNS0wMi0yMyIsMjQ5MDc5LDE1OTQ1NTZdLFsiMjAyNS0wMi0yNiIsMTc1MzA2LDE1OTQ2NTddLFsiMjAyNS0wMy0wOCIsMzIzMjc0LDE1OTU2NDFdLFsiMjAyNS0wMy0xNSIsMjg5NzI5LDE1OTYxNjNdLFsiMjAyNS0wMy0yMiIsMjA2ODkwLDE1OTY2MTJdLFsiMjAyNS0wMy0zMCIsMjg2Mjk3LDE1OTY2OTBdLFsiMjAyNS0wNC0wNCIsMTU2MDEzLDE1OTcxMDFdLFsiMjAyNS0wNC0xMiIsNjQ1ODcsMTU5NzE4OF0s#yIyMDI1LTA0LTIwIiwyMjk2ODI3LDE2MDUwNTldLFsiMjAyNS0wNC0yNiIsMjIxNjA3LDE2MDUzMDhdLFsiMjAyNS0wNS0wMSIsMjQ2MDY5LDE2MDUzODddLFsiMjAyNS0wNS0wOSIsMTQ0NzY5LDE2MDUzMTZdLFsiMjAyNS0wNS0xOCIsMjY2ODcyLDE2MDU0NjNdLFsiMjAyNS0wNS0yNSIsMTA4ODg0LDE2MDUyMzldLFsiMjAyNS0wNi0wMSIsMzE2NjU1LDE2MDUxMTBdLFsiMjAyNS0wNi0wOCIsMTAyNTc3LDE2MDQ5OTZdLFsiMjAyNS0wNi0xNSIsMjI2OTg5LDE2MDUyOTldLFsiMjAyNS0wNi0yMSIsMzM1MTg1LDE2MDUwNzVdLFsiMjAyNS0wNi0yNyIsMTg5MDc1LDE2MDQ5NzBdLFsiMjAyNS0wNy0wNiIsMjM2Nzk4LDE2MDQ5NzZdLFsiMjAyNS0wNy0xMyIsMjEwNjUzLDE2MDU3MDldLFsiMjAyNS0wNy0yMCIsMjM3NTYyLDE2MDU2ODddLFsiMjAyNS0wNy0yNyIsMzI4NDA0LDE2MDY0NTFdLFsiMjAyNS0wNy0yOSIsMTE2MTg0LDE2MDcwNDhdXX0!eyJ3Z#VrIjp7ImN1cnIiOnsiYXZnX3ZpZXdlcnMiOjE1NTIwLCJtYXhfdmlld2VycyI6NTU3NDUsImR1cmF0a#9uIjoxNDE2LCJtY#5faG91cnMiOjM2NjI2MSwiZm9sbG93ZXJzIjoxMzk5LCJmb2xsb3dlcnNfaG91ciI6NTkuMjgsInRvdGFsX2dhb#VzIjo4LCJzdHJlY#1zX251b#JlciI6NywiY#N0aXZlX2RheXMiOjcsInRvdGFsX2RheXMiOjd9LCJwcmV2Ijp7ImF2Z192a#V3ZXJzIjo5NDIyLCJtYXhfdmlld2VycyI6MTU2OTQsImR1cmF0a#9uIjoxNzY2LCJtY#5faG91cnMiOjI3NzMyMCwiZm9sbG93ZXJzIjotMjAsImZvbGxvd2Vyc19ob3VyIjotMC42OCwidG90Y#xfZ2FtZXMiOjgsInN0cmVhbXNfbnVtYmVyIjo3LCJhY3RpdmVfZGF5cyI6NywidG90Y#xfZGF5cyI6N30sImNoYXJ0IjpbNzczOSw2ODI3LDY4OTMsNDg4LDUxNzcsNjU3Myw4MDQwLDExNzI5LDEzNjgwLDEyNTUxLDkyNzcsMzE5MTEsMzc5MTEsNDI3MTIsMzg3NTUsMzQ3OTAsMzYwMTcsOTQzLDQ2NzksNTE1Niw1MzcyLDU3MTQsNTkyNSw1Njg3LDE1MzAyLDU0ODc4LDQ5ODc2LDQzMzQ5LDE5MzAsMTE1MjMsMTc1MTUsMTk3NTIsMTkyNDUsMTc3NTEsMTg1NDMsMTc2MTYsMTU2OTMsMTMzOTAsMTE4NjMsMjY5Niw1ODc1LDU4ODgsNjM4MCw3MzY0LDc2MDgsNzQ5Miw2Njg4LDYyMzhdfSwib#9udGgiOnsiY3VyciI6eyJhdmdfdmlld2VycyI6MTAwMDMsIm1heF92a#V3ZXJzIjo1NTc0NSwiZHVyYXRpb24iOjY3MjMsIm1hbl9ob3VycyI6MTEyMDg0OSwiZm9sbG93ZXJzIjoyMjQ0LCJmb2xsb3dlcnNfaG91ciI6MjAuMDI3LCJ0b3RhbF9nY#1lcyI6MjQsInN0cmVhbXNfbnVtYmVyIjoyNSwiY#N0aXZlX2RheXMiOjI0LCJ0b3RhbF9kYXlzIjozMH0sInByZXYiOnsiYXZnX3ZpZXdlcnMiOjkxOTEsIm1heF92a#V3ZXJzIjoxOTAyMCwiZHVyYXRpb24iOjY1MzAsIm1hbl9ob3VycyI6MTAwMDMwNCwiZm9sbG93ZXJzIjotMTgxLCJmb2xsb3dlcnNfaG91ciI6LTEuNjYzLCJ0b3RhbF9nY#1lcyI6MjYsInN0cmVhbXNfbnVtYmVyIjoyMCwiY#N0aXZlX2RheXMiOjIwLCJ0b3RhbF9kYXlzIjozMH0sImNoYXJ0IjpbOTY4OCw3NTc2LDc3NDksNjEzNyw2MzA5LDQxNjcsOTA3Miw3MzM5LDc4ODMsMTQ5ODYsNTg0Miw5Njg2LDczNjMsODQ3NSw0NTI5LDEwOTM4LDEyOTYyLDExMjY2LDc4NDcsODYwNywzNDY0Myw1MTA2LDQzMzg5LDE1NTUwLDY0ODJdfSwiMyBtb250aHMiOnsiY3VyciI6eyJhdmdfdmlld2VycyI6OTkxMCwib#F4X3ZpZXdlcnMiOjU1NzQ1LCJkdXJhdGlvbiI6MTc1MTcsIm1hbl9ob3VycyI6Mjg5MzIwOCwiZm9sbG93ZXJzIjoxNzEzLCJmb2xsb3dlcnNfaG91ciI6NS44NjcsInRvdGFsX2dhb#VzIjo1Mywic3RyZ#Ftc19ud#1iZXIiOjYyLCJhY3RpdmVfZGF5cyI6NjAsInRvdGFsX2RheXMiOjkxfSwicHJldiI6eyJhdmdfdmlld2VycyI6MTg2MTgsIm1heF92a#V3ZXJzIjoxMjQ4MjUsImR1cmF0a#9uIjoxNjMwMiwib#FuX2hvdXJzIjo1MDU4NDYzLCJmb2xsb3dlcnMiOjExNzY0LCJmb2xsb3dlcnNfaG91ciI6NDMuMjk4LCJ0b3RhbF9nY#1lcyI6NDksInN0cmVhbXNfbnVtYmVyIjo1OSwiY#N0aXZlX2RheXMiOjU3LCJ0b3RhbF9kYXlzIjo5MX0sImNoYXJ0IjpbOTMxNCwxNzEzMywxNTIzMCw5MTI1LDg0MzMsMTY3MDQsMjIzMTgsOTMwNiw3NjU5LDk2NTUsMTMzNDEsNTc5OSw3NTQ0LDExNTA1LDU1NjgsNDQwMywxMzgyMyw5Njc4LDk2MzAsMTIxOTcsODk2OCw0NjgzLDQ5OTAsMTA4NjEsNTg2OSw4MDc0LDEyMDcwLDg2NTUsODg2Myw3MDc4LDEwNDM0LDYzMzQsMTMzMDcsMTIxNzYsODM1OSwxNTI1OCw0ODg0LDk2ODgsNzU3Niw3NzQ5LDYxMzcsNjMwOSw0MTY3LDkwNzIsNzMzOSw3ODgzLDE0OTg2LDU4NDIsOTY4Niw3MzYzLDg0NzUsNDUyOSwxMDkzOCwxMjk2MiwxMTI2Niw3ODQ3LDg2MDcsMzQ2NDMsNTEwNiw0MzM4OSwxNTU1MCw2NDgyXX19!eyJyZ#xhdGlvbiI6ImZvbGxvd3MiLCJjaGFubmVscyI6#3sia#QiOjUyMTMwNzY1LCJuY#1lIjoic3F1Z#V6a#UiLCJkaXNwbGF5X25hb#UiOiJTcXVlZXppZSIsIm1hdHVyZSI6MCwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOm51bGwsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC8xOTM5NjE1ZS1hMzRkLTRmY#ItYTAzNS04YzNkOGZmY#UyNzgtcHJvZmlsZV9pb#FnZS0zMDB4MzAwLnBuZyIsInByb2ZpbGVfYmFubmVyIjpud#xsLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6Ilx1MDBlN2EgbGl2ZSBjaGFxd#Ugb#VyY3JlZGkgZGUgMjBoIFx1MDBlMCAwMGggIiwiY3JlYXRlZF9hdCI6IjIwMTMtMTEtMjQgMjE6NDA6MTYiLCJsaXZlIjpud#xsfSx7ImlkIjoyNzExNTkxNywibmFtZSI6Imthb#V0MCIsImRpc3BsYXlfbmFtZSI6Ikthb#V0MCIsIm1hdHVyZSI6MCwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOm51bGwsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC85ZTEyODYyZC1hOGQwLTRkZjItODFhYS1lMjI0MTAyMmRjOTgtcHJvZmlsZV9pb#FnZS0zMDB4MzAwLmpwZyIsInByb2ZpbGVfYmFubmVyIjpud#xsLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IkZyZ#5jaCBJbmRlcGVuZGFudCBTdHJlY#1lciBmcm9tIENvcmJla#wtRXNzb25uZXMuIENvbnRhY3QgQEthb#V0b1R#IG9uIFR3aXR0ZXIgb3IgcGVyIGVtY#lsIDoga2FtZXRvQGthb#V0by50diIsImNyZ#F0Z#RfYXQiOiIyMDExLTEyLTMwIDExOjE3OjMxIiwibGl2ZSI6MjcxMTU5MTd9LHsia#QiOjE1NTYwMTMyMCwibmFtZSI6ImpsdG9teSIsImRpc3BsYXlfbmFtZSI6IkpMVG9teSIsIm1hdHVyZSI6MCwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOm51bGwsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC9hYTJiYzgwYS1lMzE3LTQ5NGEtYTk0ZC03NDkyODg5ZTRmNjYtcHJvZmlsZV9pb#FnZS0zMDB4MzAwLnBuZyIsInByb2ZpbGVfYmFubmVyIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvMjc2ZmJlZGMtODI4Mi00ZDZlLTgzZjktY2E2NTllYTYxZTVlLXByb2ZpbGVfYmFubmVyLTQ4MC5wbmciLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6Imonc2FpcyBwYXMgY2UgcXVlIGonZm91dCBsYSAtICBjb250Y#N0QGpsdG9teS5jb20iLCJjcmVhdGVkX2F0IjoiMjAxNy0wNS0wMyAwNzoyMzo1NSIsImxpdmUiOjE1NTYwMTMyMH0seyJpZCI6MjQxNDc1OTIsIm5hb#UiOiJnb3RhZ2EiLCJkaXNwbGF5X25hb#UiOiJHb3RhZ2EiLCJtYXR1cmUiOjAsImxhbmd1Y#dlIjoiRnJlbmNoIiwidmlkZ#9faGVpZ2h0Ijpud#xsLCJsb2dvIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvNjllMzI0ZjYtZmM3ZC00MTMxLTg5Z#QtMjI3YTk1NTYzN2NmLXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6bnVsbCwicGFydG5lciI6MSwiZGVzY3JpcHRpb24iOiJKZSBtXHUyMDE5YXBwZ#xsZSBDb3JlbnRpbiBIb3Vzc2VpbiwgaidhaSAzMSBhbnMgZXQgamUgc3VpcyB1biBhbmNpZ#4gam91ZXVyIHByb2Zlc3Npb25uZ#wgc3VyIGxlcyBvcHVzIENhbGwgT2YgRHV0eSBzb3VzIGxlIHBzZXVkb255b#UgR290Y#dhLiBEZSBub21icmV1c2VzIGZvaXMgY2hhbXBpb24gZCdFdXJvcGUgZXQgZGUgRnJhbmNlLCBqJ2FpIGxvbmd0Z#1wcyBcdTAwZTl0XHUwMGU5IGxlIGpvd#V1ciBmcmFuXHUwMGU3Y#lzIGxlIHBsdXMgdGl0clx1MDBlOSBzdXIgY29uc29sZXMuIiwiY3JlYXRlZF9hdCI6IjIwMTEtMDgtMTcgMDk6MjY6MDciLCJsaXZlIjpud#xsfSx7ImlkIjoxMTAxMTk2MzcsIm5hb#UiOiJua#tvZiIsImRpc3BsYXlfbmFtZSI6Ik5pa29mIiwib#F0dXJlIjowLCJsY#5nd#FnZSI6IkZyZ#5jaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcLzZiZTdkZDUxLTA1YjAtNGUzOC1hOGI4LTQ0YTI5NzAyYmYxZi1wcm9ma#xlX2ltY#dlLTMwMHgzMDAucG5nIiwicHJvZmlsZV9iY#5uZXIiOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC84NDgzY2Q0Ny04YTUwLTQzODAtYTUyMy0zZDc5MDMxYzA3NzUtcHJvZmlsZV9iY#5uZXItNDgwLmpwZ#ciLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IkplIGZhaXMgZGVzIHRyd#NzIGRyXHUwMGY0bGVzIEkgQ29kZSBOa#tvZiAoY#Zma#xpYXRpb24pIiwiY3JlYXRlZF9hdCI6IjIwMTUtMTItMjEgMjI6MTg6NDYiLCJsaXZlIjpud#xsfSx7ImlkIjo0MDA2MzM0MSwibmFtZSI6ImRvb#luZ28iLCJkaXNwbGF5X25hb#UiOiJEb21pbmdvIiwib#F0dXJlIjowLCJsY#5nd#FnZSI6IkZyZ#5jaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcLzNjZGFlN2RmLTYwMGMtNDgzMy04ZGZlLThkMmFiYzVhM2IyNS1wcm9ma#xlX2ltY#dlLTMwMHgzMDAucG5nIiwicHJvZmlsZV9iY#5uZXIiOm51bGwsInBhcnRuZXIiOjEsImRlc2NyaXB0a#9uIjoiUHJcdTAwZTlza#RlbnQgZHUgRkMgU2lsb#kiLCJjcmVhdGVkX2F0IjoiMjAxMy0wMi0wNSAxOToyMDoyMiIsImxpdmUiOm51bGx9LHsia#QiOjI4NTc1NjkyLCJuY#1lIjoib#lzdGVybXYiLCJkaXNwbGF5X25hb#UiOiJtaXN0ZXJtdiIsIm1hdHVyZSI6MCwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOm51bGwsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC9iMjIwZjI4NS1iMTJlLTQ5N#MtOTYxMS1kMzBhMGNiY#NhMGEtcHJvZmlsZV9pb#FnZS0zMDB4MzAwLnBuZyIsInByb2ZpbGVfYmFubmVyIjpud#xsLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IlN0cmVhb#VyXC9Qclx1MDBlOXNlbnRhdGV1ciB8IENvbXBvc2l0ZXVyXC9Qcm9kd#N0ZXVyIGRlIE11c2lxd#UgKFhhdmllciBEY#5nKSB8IENvL#ZvbmRhdGV1ciBUZ#FtIEFlZ2lzIHwgRm9uZGF0ZXVyIFNwZ#VEb25zIHwgQ28tcHJvZHVjdGV1ciBHY#1lIG9mIFJcdTAwZjRsZXMiLCJjcmVhdGVkX2F0IjoiMjAxMi0wMi0yNyAyMjo1ODozMiIsImxpdmUiOm51bGx9LHsia#QiOjQyMTQxMjUxLCJuY#1lIjoib#FzdGVyc25ha291IiwiZGlzcGxheV9uY#1lIjoiT#FzdGVyU25ha291Iiwib#F0dXJlIjowLCJsY#5nd#FnZSI6IkZyZ#5jaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcL2QxO#M1MDk3L#JmNzgtNDM2OC05ZmRjL#QyO#FiZDBlNzVkMi1wcm9ma#xlX2ltY#dlLTMwMHgzMDAucG5nIiwicHJvZmlsZV9iY#5uZXIiOm51bGwsInBhcnRuZXIiOjEsImRlc2NyaXB0a#9uIjoiV0VMQ09NRSwga#NpIHBhcyBkZSBEcmFtYSBvdSBkZSB0b3hpY2l0XHUwMGU5LCBzZXVsZ#1lbnQgZGVzIGdvb2QgdmliZXMgZXQgRFUgTE9PVC5cd#Q4M2Rcd#RlMDMgQnVza#5lc3MgT25seTogY29udGFjdEBzbmFrb3UuY29tIiwiY3JlYXRlZF9hdCI6IjIwMTMtMDQtMDYgMDk6NDI6NDUiLCJsaXZlIjo0MjE0MTI1MX0seyJpZCI6MTM3MzQ3NTQ5LCJuY#1lIjoibG9ja2xlYXIiLCJkaXNwbGF5X25hb#UiOiJMb2NrbGVhciIsIm1hdHVyZSI6MCwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOjEwODAsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC83MGQ5MGVjMTQ4MDhjOTVmLXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcLzlmYzVhNzJjMzM5Y2QxY#EtcHJvZmlsZV9iY#5uZXItNDgwLmpwZ#ciLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IiIsImNyZ#F0Z#RfYXQiOiIyMDE2LTEwLTE4IDEzOjIyOjE5IiwibGl2ZSI6bnVsbH0seyJpZCI6ODcxODM3OTksIm5hb#UiOiJ0a#t5anIiLCJkaXNwbGF5X25hb#UiOiJUa#t5anIiLCJtYXR1cmUiOjAsImxhbmd1Y#dlIjoiRnJlbmNoIiwidmlkZ#9faGVpZ2h0Ijpud#xsLCJsb2dvIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvZjA3ZTIwZTUtNDY4Mi00MDdmLTkxMzYtOTgyY2EyZDBlYzFlLXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6bnVsbCwicGFydG5lciI6MSwiZGVzY3JpcHRpb24iOiJTY#x1dCBjJ2VzdCBUa#t5LCBqb3VldXIgZGUgTG9MIGVuIG1pZGxhbmUgISAgLSAgdGlreUBjZXNjb2FnZ#5jeS5jb20iLCJjcmVhdGVkX2F0IjoiMjAxNS0wNC0wMSAxOToyODo0NyIsImxpdmUiOjg3MTgzNzk5fSx7ImlkIjoxMzU0NjgwNjMsIm5hb#UiOiJhbnRva#5lZGFua#VsIiwiZGlzcGxheV9uY#1lIjoiQ#50b2luZURhbmllbCIsIm1hdHVyZSI6MSwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOjEwODAsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC83NDc0ZDlkOC1hYjI3LTQ2YzgtOTVmNC0wYzcxYjE4NzhjNzgtcHJvZmlsZV9pb#FnZS0zMDB4MzAwLnBuZyIsInByb2ZpbGVfYmFubmVyIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvMTU1YmQ5ZDctZDM1Yy00ZDYxL#I0OTAtZGZiZTE0NzVlMmI4LXByb2ZpbGVfYmFubmVyLTQ4MC5qcGVnIiwicGFydG5lciI6MSwiZGVzY3JpcHRpb24iOiJFdCBvd#kgamUgc3VpcyBsXHUwMGUwIiwiY3JlYXRlZF9hdCI6IjIwMTYtMDktMjYgMjA6NTQ6NTMiLCJsaXZlIjpud#xsfSx7ImlkIjo1NzQ4MDIzODUsIm5hb#UiOiJqb2xhdmFua#xsZSIsImRpc3BsYXlfbmFtZSI6IkpvbGF2Y#5pbGxlIiwib#F0dXJlIjowLCJsY#5nd#FnZSI6IkZyZ#5jaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcLzJjNmIzMzhjLTBiMDktNDdjNy1iNTRiL#E1ZDYxY2U4M2I0Ni1wcm9ma#xlX2ltY#dlLTMwMHgzMDAucG5nIiwicHJvZmlsZV9iY#5uZXIiOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC85NDNjYjZhOS1hOGY1LTRjMDItYmE2NC02NzkzZGIwMjIwNDEtcHJvZmlsZV9iY#5uZXItNDgwLnBuZyIsInBhcnRuZXIiOjEsImRlc2NyaXB0a#9uIjoiV3NoIG1vaSBjJ2VzdCBqb3JkY#5lIGplIHN1aXMgbFx1MDBlMCBwb3VyIHZvdXMgZmFpcmUgcmlyZSBkb25jIHNpIHR1IGFzIGVudmllIGRlIGtpZmZcdTAwZTkgY#Jvbm5lIHRvaSAgISEgIDopICAgT#FpbCBwcm86IGNvbnRhY3RAam9sYXZhbmlsbGUuZnIiLCJjcmVhdGVkX2F0IjoiMjAyMC0wOC0yOSAxMTo0NToxOCIsImxpdmUiOjU3NDgwMjM4NX0seyJpZCI6MTMyNTAxMDMwLCJuY#1lIjoiY2xlb#92aXRjaCIsImRpc3BsYXlfbmFtZSI6IkNsZ#1vdml0Y2giLCJtYXR1cmUiOjAsImxhbmd1Y#dlIjoiRnJlbmNoIiwidmlkZ#9faGVpZ2h0Ijpud#xsLCJsb2dvIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvNmU5MjE3YTctNzkzYi00Zjk2L#IyMDQtMjFiZDMzYjM3YTA3LXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6bnVsbCwicGFydG5lciI6MSwiZGVzY3JpcHRpb24iOiJDbFx1MDBlO#1lbnQgVmlrdG9yb3ZpdGNoIDogZG9jdGV1ciwgYXV0ZXVyLCBzdHJlY#1lciAhIFN1ciBzY1x1MDBlOG5lIHBvdXIgXCJMJ2FydCBkZSBuZSBwYXMgZGlyZVwiLiBFbiBsa#JyY#lya#UgYXZlYyBcIkxlIFBvdXZvaXIgUmhcdTAwZTl0b3JpcXVlXCIuIEV0IGljaSBsZSByZXN0ZSBkdSB0Z#1wcyAhIiwiY3JlYXRlZF9hdCI6IjIwMTYtMDgtMTggMDg6NDc6MjUiLCJsaXZlIjpud#xsfSx7ImlkIjo2ODA3ODE1NywibmFtZSI6Impvd#V1cl9kdV9ncmVua#VyIiwiZGlzcGxheV9uY#1lIjoiSm91ZXVyX2R1X0dyZ#5pZXIiLCJtYXR1cmUiOjAsImxhbmd1Y#dlIjoiRnJlbmNoIiwidmlkZ#9faGVpZ2h0IjoxMDgwLCJsb2dvIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvNjgyOTZmZTItY2VlNy00MmRkL#IyNDEtNjUzNTA4NGRmMTJhLXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcL2UxZDBjY#M4LTBmMzUtNDQwZC04MDQyLTA5O#I5Y#RmN#JjYi1wcm9ma#xlX2Jhbm5lci00ODAucG5nIiwicGFydG5lciI6MSwiZGVzY3JpcHRpb24iOiJDaGFcdTAwZ#VuZSBUd2l0Y2ggZHUgSm91ZXVyIGR1IEdyZ#5pZXIgISBTb3VmZnJhbmNlLCBtaXNcdTAwZThyZSBldCBod#1vdXIgb3BwcmVzc2lmLiAiLCJjcmVhdGVkX2F0IjoiMjAxNC0wOC0wMyAxNzozMzo1MCIsImxpdmUiOm51bGx9LHsia#QiOjExNzAxMTUwMywibmFtZSI6ImplY#5tYXNza#V0IiwiZGlzcGxheV9uY#1lIjoiSmVhbk1hc3NpZXQiLCJtYXR1cmUiOjAsImxhbmd1Y#dlIjoiRnJlbmNoIiwidmlkZ#9faGVpZ2h0Ijpud#xsLCJsb2dvIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvN#EyNTI0ZmQtMzI1Yi00ZGVjL#FhNmYtMGYxOGM3Yjk1YmQ1LXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6bnVsbCwicGFydG5lciI6MSwiZGVzY3JpcHRpb24iOiJKZ#FuIE1hc3NpZXQsIDM2IGFucywgc3RyZ#FtIGRlcHVpcyA5IGFucyBwb3VyIHQnZXhwbGlxd#VyIGF1dGFudCBxd#UgcG9zc2libGUgbCdhY3R1IGV0IHQnY#lkZXIgXHUwMGUwIHQneSByZXRyb3V2ZXIgZGFucyBjZSBiZ#F1IGJveG9uLiBCcmVmIHNpIGxhIHBvbGl0aXF1ZSB0ZSBzY#91bGUgdCdlcyBhdSBib24gZ#5kcm9pdC4gQ#ggZXQgamUgc3VpcyBBcmdlbnQgMiBzdXIgU3RhcmNyY#Z0IElJIGF1c3NpLiBKZSBzY#lzIFx1MDBlN2Ega#1wcmVzc2lvbm5lLiBGb2xsb3cgb#UiLCJjcmVhdGVkX2F0IjoiMjAxNi0wMi0yNiAwOTozNjozOSIsImxpdmUiOm51bGx9LHsia#QiOjExOTY1Nzc2NSwibmFtZSI6Im1heGltZ#JpY#dnaSIsImRpc3BsYXlfbmFtZSI6Ik1heGltZUJpY#dnaSIsIm1hdHVyZSI6MCwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOm51bGwsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC85OTRiYTRlYS05OGJhLTQ0NDYtYTkyMy0xNjRlNTc1ZmY0OTgtcHJvZmlsZV9pb#FnZS0zMDB4MzAwLnBuZyIsInByb2ZpbGVfYmFubmVyIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvYTMwN2M2YjMtZDZlYi00NGE2L#E0NGYtYTgwZjFjYzkwZGQyLXByb2ZpbGVfYmFubmVyLTQ4MC5wbmciLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IlVuIGhvb#1lIHNpbXBsZSBhdmFudCB0b3V0Li4uIGZcdTAwZTlydSBkZSBsZ#N0dXJlLi4gdHJcdTAwZThzIGN1bHRpdlx1MDBlOSB0clx1MDBlOHMgYmVhdSBldGMiLCJjcmVhdGVkX2F0IjoiMjAxNi0wMy0yNCAyMjoxNjozMCIsImxpdmUiOm51bGx9LHsia#QiOjI1NDU0Mzk4LCJuY#1lIjoiZG9pZ2J5IiwiZGlzcGxheV9uY#1lIjoiRG9pZ2J5Iiwib#F0dXJlIjowLCJsY#5nd#FnZSI6IkZyZ#5jaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcLzdjO#ZmZGRjL#MxMjEtNGI0ZC04MjJmL#UzZjljNTU4YjViNi1wcm9ma#xlX2ltY#dlLTMwMHgzMDAucG5nIiwicHJvZmlsZV9iY#5uZXIiOm51bGwsInBhcnRuZXIiOjEsImRlc2NyaXB0a#9uIjoiT#EgdmllIGVzdCB1biBqZXUsIGRvbmMgamUgam91ZSBtYSB2a#UgISBcd#Q4M2Rcd#RjM2EiLCJjcmVhdGVkX2F0IjoiMjAxMS0xMC0xNCAxODoyMTowNCIsImxpdmUiOm51bGx9LHsia#QiOjExNzE2ODY0MiwibmFtZSI6ImNob3doMSIsImRpc3BsYXlfbmFtZSI6ImNob3doMSIsIm1hdHVyZSI6MSwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOm51bGwsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC84MGNjMjRiOC01NThjLTQ0MGMtYjVlZi0wN#QxMjg2OTAxO#ItcHJvZmlsZV9pb#FnZS0zMDB4MzAwLnBuZyIsInByb2ZpbGVfYmFubmVyIjpud#xsLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IkwnY#5pb#F0ZXVyIHF1aSB0d#UgdG9uIGpvd#V1ciBwcm8gcHJcdTAwZTlmXHUwMGU5clx1MDBlOSA6RCIsImNyZ#F0Z#RfYXQiOiIyMDE2LTAyLTI3IDE5OjA5OjAyIiwibGl2ZSI6bnVsbH0seyJpZCI6NDA3NDAzNTEsIm5hb#UiOiJ6YXdhX3Byb2QiLCJkaXNwbGF5X25hb#UiOiJaYXdhX1Byb2QiLCJtYXR1cmUiOjEsImxhbmd1Y#dlIjoiRnJlbmNoIiwidmlkZ#9faGVpZ2h0Ijpud#xsLCJsb2dvIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvODdiODgwMDctN2MxMC00M2FjL#FiNmItOTNmZTlmOTcwYTdmLXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6bnVsbCwicGFydG5lciI6MSwiZGVzY3JpcHRpb24iOiJEaXNjdXNza#9ucywgaHVtb3VyIGV0IGRcdTAwZTliYXRzLiBMZSB0b24gZXN0IGxpYnJlIGV0IHBhcmZvaXMgcHJvdm9jJy4gQydlc3QgbGUgcGlyZSBsaXZlIG1haXMgYXNraXAgYXByXHUwMGU4cyAyLTMgc3RyZ#FtcyBjJ2VzdCBsZSBtZ#lsbGV1ci4iLCJjcmVhdGVkX2F0IjoiMjAxMy0wMi0yNSAxODo0NjowMCIsImxpdmUiOjQwNzQwMzUxfSx7ImlkIjo0ODU4MTgxMTUsIm5hb#UiOiJwYXBlc2FuIiwiZGlzcGxheV9uY#1lIjoiUGFwZVNhbiIsIm1hdHVyZSI6MCwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOm51bGwsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC8zNzlhNDc4Yi1jN#EzLTQyYzMtO#RmYy00N2IzOTFiYzc4MzUtcHJvZmlsZV9pb#FnZS0zMDB4MzAwLnBuZyIsInByb2ZpbGVfYmFubmVyIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvZjRlYTdhMzItMDkxNS00MTkxLThmYTMtYmQxODhiMTRmZjg0LXByb2ZpbGVfYmFubmVyLTQ4MC5wbmciLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IkplIHBhcmNvdXJzIGxlIG1vbmRlIGF2Z#Mgb#9uIGFwcGFyZ#lsIHBob3RvIGV0IHBhcnMgXHUwMGUwIGxhIHJlbmNvbnRyZSBkZXMgcG9wd#xhdGlvbnMgbG9jY#xlcy4gVHUgb#UgcmVqb2lucyA/IFx1ZDgzY1x1ZGYwZCIsImNyZ#F0Z#RfYXQiOiIyMDIwLTAxLTE1IDE1OjAzOjIwIiwibGl2ZSI6bnVsbH0seyJpZCI6MTUwMzE1MjI0LCJuY#1lIjoidHJhc2h0Y#xrZnIiLCJkaXNwbGF5X25hb#UiOiJUcmFzaFRhbGtGciIsIm1hdHVyZSI6MCwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOm51bGwsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC9hNmRkZjFhOGJhOTkyMjg1LXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5qcGVnIiwicHJvZmlsZV9iY#5uZXIiOm51bGwsInBhcnRuZXIiOjIsImRlc2NyaXB0a#9uIjoiQ#xsZXosIGNhZlx1MDBlOS4uLiIsImNyZ#F0Z#RfYXQiOiIyMDE3LTAzLTEzIDEyOjI2OjI0IiwibGl2ZSI6bnVsbH0seyJpZCI6NTA1OTAyNTEyLCJuY#1lIjoic2Ftd#VsZXRpZ#5uZSIsImRpc3BsYXlfbmFtZSI6InNhbXVlbGV0a#VubmUiLCJtYXR1cmUiOjAsImxhbmd1Y#dlIjoiRnJlbmNoIiwidmlkZ#9faGVpZ2h0Ijpud#xsLCJsb2dvIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvNmE0MjEwMzgtZDQ1NS00M#VkLTk3MDUtYjMyOTA5Y2ExODJhLXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6bnVsbCwicGFydG5lciI6MSwiZGVzY3JpcHRpb24iOiJMZSBwcm9qZXQgZXN0IHNpbXBsZSA6IHByb3Bvc2VyIHN1ciBUd2l0Y2ggcGxla#4gZCdcdTAwZTltaXNza#9ucyBkb250IGxlcyB0aXRyZXMgc29udCBkZXMgamV1eCBkZSBtb3RzIHRvdGFsZ#1lbnQgY2xhcXVcdTAwZTlzIGF1IHNvbCBcdTAwZTAgcGFydGlyIGRlIG1vbiBub20gOiBTY#0gUGxheSwgTGEgT#F0a#5cdTAwZTllIEVzdCBUa#VubmUsIEwnSGViZG8gRXN0IFRpZ#5uZSwgTGEgUmVuY29udHJlIEVzdCBUa#VubmUsIEwnRXhwb3NpdGlvbiBFc3QgVGllbm5lLiBUdSBsJ2FzID8gQnJhdm8sIHR1IHBldXggZmFpcmUgcGFydGllIGRlIGxhIGNvb#11IiwiY3JlYXRlZF9hdCI6IjIwMjAtMDMtMzAgMDg6NDM6MzkiLCJsaXZlIjpud#xsfSx7ImlkIjo0OTYxMDU0MDEsIm5hb#UiOiJie#lsaGFubiIsImRpc3BsYXlfbmFtZSI6ImJ5a#xoY#5uIiwib#F0dXJlIjowLCJsY#5nd#FnZSI6IkZyZ#5jaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcL2VhNGI2MDhhLTJmMjEtNDMyYS1hZmNhLTAzZGE3OTIwYThhNi1wcm9ma#xlX2ltY#dlLTMwMHgzMDAucG5nIiwicHJvZmlsZV9iY#5uZXIiOm51bGwsInBhcnRuZXIiOjEsImRlc2NyaXB0a#9uIjoiamUgb#9udGUgZ#4gaGF1dCBDb250Y#N0OiBie#lsaGFuLmNvbnRhY3RAZ21ha#wuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjAtMDItMjkgMTY6MzY6MTkiLCJsaXZlIjpud#xsfSx7ImlkIjo4OTMxMTY5MywibmFtZSI6ImJyZ#5fdG0yIiwiZGlzcGxheV9uY#1lIjoiQnJlbl9UTTIiLCJtYXR1cmUiOjAsImxhbmd1Y#dlIjoiR#5nbGlzaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcLzE2OTJiYjhjLTZkNDgtNDA0NS1hMTVkL#UzZTY5NTE1ZmU0OS1wcm9ma#xlX2ltY#dlLTMwMHgzMDAucG5nIiwicHJvZmlsZV9iY#5uZXIiOm51bGwsInBhcnRuZXIiOjEsImRlc2NyaXB0a#9uIjoiVHJhY2ttY#5pYSAyMDIzIFdvcmxkIENoY#1wa#9uIC0gQmFjayB0byBiY#NrIERlZXAgRGlwIHdpbm5lciAoMSAmIDIpIiwiY3JlYXRlZF9hdCI6IjIwMTUtMDQtMjMgMTk6Mjg6MjEiLCJsaXZlIjpud#xsfSx7ImlkIjo4NTgwMDEzMCwibmFtZSI6ImV0b2lsZXMiLCJkaXNwbGF5X25hb#UiOiJFdG9pbGVzIiwib#F0dXJlIjowLCJsY#5nd#FnZSI6IkZyZ#5jaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcLzRlZ#NhY#I4LTRkZTMtNGJjYy1iMmI3L#YzYTAzZTgyNzNhOC1wcm9ma#xlX2ltY#dlLTMwMHgzMDAucG5nIiwicHJvZmlsZV9iY#5uZXIiOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC8zYjVkMjZlYS1hM#ZmLTQyZjAtOTMyZi1jNTlhYTVkYmE5YzgtcHJvZmlsZV9iY#5uZXItNDgwLnBuZyIsInBhcnRuZXIiOjEsImRlc2NyaXB0a#9uIjoiRXRva#xlcyA6IE51aXQgZGUgbGEgY3VsdHVyZSwgb#luZ#NyY#Z0LCBzb#FzaCBldCBtd#x0a#dhb#luZyBlbnRyZSBhb#lzICEiLCJjcmVhdGVkX2F0IjoiMjAxNS0wMy0yMiAwMTo0NDo1MSIsImxpdmUiOjg1ODAwMTMwfSx7ImlkIjo1MDU5NzAyNiwibmFtZSI6InBvbmNlIiwiZGlzcGxheV9uY#1lIjoiUG9uY2UiLCJtYXR1cmUiOjAsImxhbmd1Y#dlIjoiRnJlbmNoIiwidmlkZ#9faGVpZ2h0Ijpud#xsLCJsb2dvIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvZDQ3MzcwNjEtOGYwMC00O#Q5L#E1NmYtZmNiNGE5MjMwYjNmLXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcL2U3Y#ZmMzViLTM5ZDYtNDNiYS1iN#VjLTBkNmQ5ODczOGFhOC1wcm9ma#xlX2Jhbm5lci00ODAuanBlZyIsInBhcnRuZXIiOjEsImRlc2NyaXB0a#9uIjoiTm91cyBzb21tZXMgZGUgdHJcdTAwZThzIGpvbGllcyBmbGV1cnMgZGFucyB1biBtXHUwMGVhb#UgYm91cXVldC4iLCJjcmVhdGVkX2F0IjoiMjAxMy0xMC0yNCAxOTowNDo0NSIsImxpdmUiOm51bGx9LHsia#QiOjUwNzk1MjE0LCJuY#1lIjoic2FyZG9jaGUiLCJkaXNwbGF5X25hb#UiOiJTYXJkb2NoZSIsIm1hdHVyZSI6MCwibGFuZ3VhZ2UiOiJGcmVuY2giLCJ2a#Rlb19oZ#lnaHQiOm51bGwsImxvZ28iOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC8yYjFiO#UxMy01YjlmLTQxZ#UtYjM3NS01NGQzYzY0OTFiYjItcHJvZmlsZV9pb#FnZS0zMDB4MzAwLnBuZyIsInByb2ZpbGVfYmFubmVyIjpud#xsLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IlRye#hhcmRlciBzY#5zIGxpb#l0ZSBcL1wvIENoZXNzYm94ZXIiLCJjcmVhdGVkX2F0IjoiMjAxMy0xMC0yOCAxNzowMjo0NyIsImxpdmUiOm51bGx9LHsia#QiOjE0MDg0Njc4NiwibmFtZSI6ImZ1Z3VfZnBzIiwiZGlzcGxheV9uY#1lIjoiZnVndV9mcHMiLCJtYXR1cmUiOjAsImxhbmd1Y#dlIjoiRnJlbmNoIiwidmlkZ#9faGVpZ2h0Ijpud#xsLCJsb2dvIjoiaHR0cHM6XC9cL3N0YXRpYy1jZG4uanR2bncubmV0XC9qdHZfdXNlcl9wa#N0dXJlc1wvMDc5NzQyNDMtNDhjNS00ZmQ5L#IyYjUtMTQ5NDRlYmFhYzEwLXByb2ZpbGVfa#1hZ2UtMzAweDMwMC5wbmciLCJwcm9ma#xlX2Jhbm5lciI6bnVsbCwicGFydG5lciI6MSwiZGVzY3JpcHRpb24iOiJmd#d1QHByb2RpZ3ktY#dlbmN5LmdnICIsImNyZ#F0Z#RfYXQiOiIyMDE2LTEyLTAxIDIyOjEwOjM2IiwibGl2ZSI6MTQwODQ2Nzg2fSx7ImlkIjo4MTQ0NjMzMSwibmFtZSI6InRyYXl0b25sb2wiLCJkaXNwbGF5X25hb#UiOiJUcmFZdG9ObG9sIiwib#F0dXJlIjowLCJsY#5nd#FnZSI6IkZyZ#5jaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcLzYxMGUxMTY3LTU5M#MtNDQ1ZC04Y#Q0L#Y2N#UwNzY5NTU3NS1wcm9ma#xlX2ltY#dlLTMwMHgzMDAuanBlZyIsInByb2ZpbGVfYmFubmVyIjpud#xsLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IkonY#ltZSBsJ2VzcG9ydCBMZ#Fnd#Ugb2YgbGVnZ#5kcyAhISEhISIsImNyZ#F0Z#RfYXQiOiIyMDE1LTAxLTMxIDIwOjIzOjQ1IiwibGl2ZSI6bnVsbH0seyJpZCI6ODQyNDA5MDQsIm5hb#UiOiJod#1pbGl0eSIsImRpc3BsYXlfbmFtZSI6Ikh1b#lsaXR5Iiwib#F0dXJlIjowLCJsY#5nd#FnZSI6IkZyZ#5jaCIsInZpZGVvX2hla#dodCI6bnVsbCwibG9nbyI6Imh0dHBzOlwvXC9zdGF0a#MtY2RuLmp0dm53Lm5ldFwvanR2X3VzZXJfcGljdHVyZXNcLzM5Y2VlMzBmL#FmODQtNDFmZi1iOTYzLTM1YzQwYjQzMmVlNC1wcm9ma#xlX2ltY#dlLTMwMHgzMDAucG5nIiwicHJvZmlsZV9iY#5uZXIiOiJodHRwczpcL1wvc3RhdGljL#Nkbi5qdHZudy5uZXRcL2p0dl91c2VyX3BpY3R1cmVzXC9od#1pbGl0eS1wcm9ma#xlX2Jhbm5lci1iMTVmMzcxNjExY#Q3MjAxLTQ4MC5wbmciLCJwYXJ0bmVyIjoxLCJkZXNjcmlwdGlvbiI6IlZpZFx1MDBlO#FzdGUgc3VyIGwnd#5pdmVycyBkJ0Fua2FtYSBldCBwYXJ0a#N1bGlcdTAwZThyZ#1lbnQgRG9mdXMsIGonZXNzYXllIGRlIHZvdXMgZGl2ZXJ0aXIgY2hhcXVlIGpvdXIgYXZlYyBsZSBzb3VyaXJlIGV0IGxhIGJvbm5lIGh1b#V1ciAhIiwiY3JlYXRlZF9hdCI6IjIwMTUtMDMtMDMgMDE6MTg6NDgiLCJsaXZlIjo4NDI0MDkwNH1dfQ!#yJjaGFydHMiLCJwZXJmb3JtY#5jZSIsInJlbGF0Z#QiXQ" id="ecs"/>
+  <div class="bg-dark" style="padding:20px 0 10px;text-align:center">
+   <!-- bottom unit -->
+   <ins class="adsbygoogle" data-ad-client="ca-pub-3581129455196386" data-ad-format="auto" data-ad-slot="6664111937" data-full-width-responsive="true" style="display:inline-block;min-width:360px; max-width:970px; width:100%; height: 250px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <footer class="bg-dark" style="padding-bottom: 120px;">
+   <div class="container">
+    <p>
+     Get in touch, report a bug or incorrect information, suggest a feature.
+    </p>
+    <ul class="list-inline">
+     <li>
+      © TwitchTracker
+     </li>
+     <li>
+      <a href="/u/login">
+       Log in
+      </a>
+     </li>
+     <li>
+      <a href="/cdn-cgi/l/email-protection#690a06071d080a1d291d1e001d0a011d1b080a020c1b470a0604">
+       <span class="__cf_email__" data-cfemail="c0a3afaeb4a1a3b480b4b7a9b4a3a8b4b2a1a3aba5b2eea3afad">
+        [email protected]
+       </span>
+      </a>
+     </li>
+    </ul>
+    <p>
+     <span style="opacity:.333">
+      Scraping is prohibited.
+     </span>
+     <a href="/api">
+      Use this basic API.
+     </a>
+    </p>
+    <p>
+     TwitchTracker is not affiliated with Twitch or Amazon. All Trademarks referred to are the property of their respective owners.
+    </p>
+   </div>
+  </footer>
+  <!-- Main scripts -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+  </script>
+  <script>
+   nigi=[0,509658,498566,518203,26936,509659,509660,488190,494717,417752,27284,743,116747788,2748,509672,66082,509663,13389,490422,509667,509577,272263131,515214,509673,12924,1469308723,22761,499973,508798,509670,493174,515467,509664,1568081763,512710,491180,32399,24537180,1669431183,509671,121606712,1307200028,2091334386,1956766327]
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4/lodash.min.js">
+  </script>
+  <!-- Custom and plugin scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js">
+  </script>
+  <script src="https://cdn.datatables.net/v/bs/dt-1.13.7/datatables.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/highcharts@10/highcharts.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/lity@2/dist/lity.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.umd.min.js">
+  </script>
+  <!-- Final -->
+  <script src="/js/master.js?21">
+  </script>
+  <script src="/js/channel-wrapper.js">
+  </script>
+  <script src="/js/pages/channel.js">
+  </script>
+  <script>
+   $('.twitchPlay').click(function () {
+            $(this).parent().html('<iframe src="https://player.twitch.tv/?\
+parent=twitchtracker.com&channel=zerator" allowfullscreen="true" scrolling="no"></iframe>')
+        });
+  </script>
+  <script>
+   $('.g-x-wrapper:eq(1)').after('<div id="ads-mobile-wide-1" class="ads g-x-wrapper" style="padding-top:10px"></div>');
+        $('ul.list-group.text-center').after('<section id="ads-midpage-1-left" class="ads"></section>');
+        $('#channel-streams').parent().after('<section id="ads-midpage-1" class="ads"></section>');
+        $('section>h4:contains("Most Streamed Games")').parent().after('<section id="ads-midpage-2" class="ads"></section>');
+
+        // Midpage #1 Left
+        $('#ads-midpage-1-left').show().html('<ins class="adsbygoogle" \
+            style="display:block;" \
+            data-ad-client="ca-pub-3581129455196386" \
+            data-ad-slot="4055259883" \
+            data-ad-format="auto" \
+            data-full-width-responsive="true"></ins>');
+        window.adsbygoogle.push({});
+
+        if (getDocumentWidth() > 999) {
+            // Midpage #1 Desktop
+            $('#ads-midpage-1').show().html('<ins class="adsbygoogle" \
+                style="display:inline-block;width:970px;height:250px" \
+                data-ad-client="ca-pub-3581129455196386" \
+                data-ad-slot="2550606525"></ins>');
+            window.adsbygoogle.push({});
+
+            // Midpage #2 Desktop
+            $('#ads-midpage-2').show().html('<ins class="adsbygoogle" \
+                style="display:inline-block;width:100%;height:100px" \
+                data-ad-client="ca-pub-3581129455196386" \
+                data-ad-slot="3612761979"></ins>');
+            window.adsbygoogle.push({});
+        } else {
+            // Mobile Wide #1
+            $('#ads-mobile-wide-1').show().html('<ins class="adsbygoogle" \
+                 style="display:block;" \
+                 data-ad-client="ca-pub-3581129455196386" \
+                 data-ad-slot="3598866832" \
+                 data-ad-format="auto" \
+                 data-full-width-responsive="true"></ins>');
+            window.adsbygoogle.push({});
+
+            // Midpage #1 Mobile
+            $('#ads-midpage-1').show().html('<ins class="adsbygoogle" \
+                style="display:block;" \
+                data-ad-client="ca-pub-3581129455196386" \
+                data-ad-slot="4055259883" \
+                data-ad-format="auto" \
+                data-full-width-responsive="true"></ins>');
+            window.adsbygoogle.push({});
+
+            // Midpage #2 Mobile
+            $('#ads-midpage-2').show().html('<ins class="adsbygoogle" \
+				style="display:block" \
+				data-ad-client="ca-pub-3581129455196386" \
+				data-ad-slot="4570620425" \
+				data-ad-format="auto" \
+				data-full-width-responsive="true"></ins>');
+            window.adsbygoogle.push({});
+        }
+  </script>
+ </body>
+</html>
