@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
-import time  # ⬅️ Ajout ici
+import time
 
 def scrape_viewership_fr():
     base_url = "https://twitchtracker.com/channels/viewership/french"
@@ -9,8 +9,9 @@ def scrape_viewership_fr():
 
     all_data = []
     total_skipped = 0
+    max_streamers = 50
 
-    for page in range(1, 11):  # Pages 1 à 10 incluses
+    for page in range(1, 11):  # Parcourt jusqu'à 10 pages, mais sortira si on atteint 50 streamers
         url = f"{base_url}?page={page}" if page > 1 else base_url
         print(f"🔎 Scraping page {page}...")
 
@@ -23,17 +24,16 @@ def scrape_viewership_fr():
         for i, row in enumerate(rows, start=1):
             try:
                 cols = row.find_all("td")
-                
-                # Ignorer les lignes vides ou de publicité (sans affichage d'erreur)
                 if len(cols) < 6:
                     continue
 
-                # Vérifier si c'est une vraie ligne de données (doit avoir un rank numérique)
                 rank_raw = cols[0].text.strip().replace("#", "")
-                if not rank_raw or not rank_raw.isdigit():
+                if not rank_raw.isdigit():
                     continue
-                
                 rank = int(rank_raw)
+
+                if rank > max_streamers:
+                    return all_data  # Stop si on a dépassé le top 50
 
                 profile_link = cols[1].find("a")["href"]
                 profile_url = f"https://twitchtracker.com{profile_link}"
@@ -45,7 +45,6 @@ def scrape_viewership_fr():
                 hours_streamed = hours_streamed_span.text.strip() if hours_streamed_span else cols[4].text.strip()
                 max_viewers = cols[5].text.strip()
                 total_minutes_watched = cols[6].text.strip() if len(cols) > 6 else None
-
                 global_rank = cols[7].text.strip() if len(cols) > 7 else None
                 followers_gain = cols[8].text.strip().lstrip("+") if len(cols) > 8 else None
                 total_followers = cols[9].text.strip() if len(cols) > 9 else None
@@ -68,12 +67,14 @@ def scrape_viewership_fr():
                     "scraped_at": datetime.utcnow().isoformat()
                 })
 
+                if len(all_data) >= max_streamers:
+                    return all_data
+
             except Exception as e:
                 print(f"[❌] Exception à la page {page}, ligne {i} : {e}")
                 total_skipped += 1
-                continue
 
-        time.sleep(1.5)  # ⏳ Pause entre les pages
+        time.sleep(1.5)
 
     print(f"\n✅ Scraping terminé : {len(all_data)} streamers récupérés")
     print(f"🚫 Total ignoré/skippé : {total_skipped} lignes")
