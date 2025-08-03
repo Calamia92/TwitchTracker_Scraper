@@ -1,15 +1,26 @@
 from db.mongo_client import db
 
 def insert_data(collection_name, data, label=None):
-    """Insérer des données dans MongoDB avec suppression préalable"""
+    """Insère ou met à jour des documents dans MongoDB (par nom)"""
     try:
         collection = db[collection_name]
-        collection.delete_many({})
-        if data:
-            collection.insert_many(data)
-            print(f"✅ {len(data)} {label or 'documents'} insérés dans '{collection_name}'")
-        else:
-            print(f"⚠️ Aucune donnée à insérer dans '{collection_name}'")
+        inserted_count = 0
+        updated_count = 0
+
+        for doc in data:
+            result = collection.replace_one(
+                {"name": doc.get("name")},
+                doc,
+                upsert=True
+            )
+            if result.matched_count:
+                updated_count += 1
+            else:
+                inserted_count += 1
+
+        print(f"✅ {inserted_count} nouveaux {label or 'documents'} insérés")
+        print(f"🔁 {updated_count} {label or 'documents'} mis à jour dans '{collection_name}'")
+
     except Exception as e:
         print("❌ Erreur MongoDB: Impossible de se connecter à la base de données")
         print("💡 Solution: Démarrez MongoDB avec la commande 'mongod' dans un autre terminal")

@@ -16,7 +16,7 @@ def clean_number(text):
     text = text.replace(",", "").replace(" ", "").replace("K", "*1e3").replace("M", "*1e6")
     try:
         return int(eval(text))
-    except:
+    except Exception:
         return text.strip()
 
 def extract_bio(soup):
@@ -72,8 +72,7 @@ def extract_additional_stats(soup):
             stats[key] = clean_number(value.get_text(strip=True))
     tables = soup.find_all("table", class_="table")
     for table in tables:
-        rows = table.find_all("tr")
-        for row in rows:
+        for row in table.find_all("tr"):
             cols = row.find_all("td")
             if len(cols) == 2:
                 key = cols[0].get_text(strip=True).lower().replace(" ", "_").replace(":", "")
@@ -98,42 +97,45 @@ def extract_channel_info(soup):
                 info["status"] = status
     return info
 
-def extract_profile_data(profile_url, streamer_name):
+def extract_profile_data(profile_url, streamer_name, max_retries=2):
     headers = {
         "User-Agent": "Mozilla/5.0"
     }
 
-    try:
-        logging.info(f"🔍 Scraping : {streamer_name} - {profile_url}")
-        response = requests.get(profile_url, headers=headers)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
+    for attempt in range(1, max_retries + 1):
+        try:
+            logging.info(f"🔍 Scraping : {streamer_name} - {profile_url} (tentative {attempt})")
+            response = requests.get(profile_url, headers=headers)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, "html.parser")
 
-        profile_data = {
-            "name": streamer_name,
-            "profile_url": profile_url,
-            "scraped_at": datetime.now(timezone.utc).isoformat(),
-            "bio": extract_bio(soup),
-            "top_games": extract_top_games(soup),
-            "recent_streams": extract_recent_streams(soup),
-            "additional_stats": extract_additional_stats(soup),
-            "channel_info": extract_channel_info(soup)
-        }
+            return {
+                "name": streamer_name,
+                "profile_url": profile_url,
+                "scraped_at": datetime.now(timezone.utc).isoformat(),
+                "bio": extract_bio(soup),
+                "top_games": extract_top_games(soup),
+                "recent_streams": extract_recent_streams(soup),
+                "additional_stats": extract_additional_stats(soup),
+                "channel_info": extract_channel_info(soup)
+            }
 
-        return profile_data
-
-    except requests.RequestException as e:
-        logging.error(f"❌ Erreur réseau ({streamer_name}): {e}")
-    except Exception as e:
-        logging.error(f"❌ Erreur parsing ({streamer_name}): {e}")
+        except requests.exceptions.HTTPError as e:
+            if response.status_code == 429 and attempt < max_retries:
+                logging.warning(f"⏳ Trop de requêtes (429). Attente 60s avant retry...")
+                time.sleep(60)
+            else:
+                logging.error(f"❌ Erreur HTTP ({streamer_name}): {e}")
+                break
+        except Exception as e:
+            logging.error(f"❌ Erreur scraping/parsing ({streamer_name}): {e}")
+            break
 
     return None
+
 def scrape_all_profiles_fr():
-    """
-    Boucle sur tous les streamers de 'viewership_fr' et scrape leur profil détaillé
-    """
     streamers = list(db["viewership_fr"].find({}, {"name": 1, "profile_url": 1, "rank": 1}))
-    logging.info(f"🎯 {len(streamers)} streamers trouvés dans la base")
+    logging.info(f"🎯 {len(streamers)} streamers français trouvés dans la base")
 
     profiles_data = []
     for i, streamer in enumerate(streamers, 1):
@@ -160,10 +162,6 @@ def scrape_all_profiles_fr():
     return profiles_data
 
 def scrape_all_profiles_world(limit=None):
-    """
-    Boucle sur tous les streamers de 'viewership_world' et scrape leur profil détaillé.
-    Peut être limité via le paramètre `limit`.
-    """
     query = db["viewership_world"].find({}, {"name": 1, "profile_url": 1, "rank": 1}).sort("rank", 1)
     if limit:
         query = query.limit(limit)
